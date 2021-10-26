@@ -3,26 +3,28 @@ package tdtu.com.finalproject.fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import tdtu.com.finalproject.R;
-import tdtu.com.finalproject.adapter.OptionAdapter;
+import tdtu.com.finalproject.adapter.OptionAdapterSpinner;
 import tdtu.com.finalproject.model.OptionDo;
 
-public class SettingFragment extends Fragment {
+public class SettingFragment extends Fragment  {
 
-    private RecyclerView recyclerView;
-    private OptionAdapter adapter;
-    private List<OptionDo> listOption;
+    private Spinner spinner;
+    private List<OptionDo> doList;
+    private OptionAdapterSpinner adapterSpinner;
 
     public SettingFragment() {
         // Required empty public constructor
@@ -39,22 +41,55 @@ public class SettingFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_setting, container, false);
 
-        recyclerView = view.findViewById(R.id.recyler_view_Option);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
-        recyclerView.setLayoutManager(layoutManager);
+        spinner = view.findViewById(R.id.option_choice_spinner);
+        doList = new ArrayList<OptionDo>(addListToDo());
 
-        adapter = new OptionAdapter(getActivity() ,addListOption());
-        recyclerView.setAdapter(adapter);
+        adapterSpinner = new OptionAdapterSpinner(
+                getActivity(),
+                R.layout.recyler_view_setting_menu,
+                doList
+        );
+
+        spinner.setAdapter(adapterSpinner);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                OptionDo questionDo = doList.get(position);
+                if (questionDo.getKeyOptions().equals("tableManager")) {
+                    replaceFragment(new UserFragment());
+                } else if (questionDo.getKeyOptions().equals("menuManager")) {
+
+                } else if (questionDo.getKeyOptions().equals("userManager")) {
+
+                } else if (questionDo.getKeyOptions().equals("inforManager")) {
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         return view;
     }
 
-    private List<OptionDo> addListOption() {
-        List<OptionDo> doList = new ArrayList<>();
-        doList.add(new OptionDo("tableManager" , "Quản Lý Khu Vực - Điểm Bán"));
-        doList.add(new OptionDo("menuManager" , "Quản Lý Menu Quán"));
-        doList.add(new OptionDo("userManager" , "Quản Lý Người Dùng"));
-        doList.add(new OptionDo("inforManager" , "Quản Lý Thông Tin Quán"));
-        return doList;
+    private List<OptionDo> addListToDo() {
+        List<OptionDo> list = new ArrayList<>();
+        list.add(new OptionDo("tableManager","Quản lý khu vực - Điểm bán"));
+        list.add(new OptionDo("menuManager","Quản lý Menu"));
+        list.add(new OptionDo("userManager","Quản lý người dùng"));
+        list.add(new OptionDo("inforManager","Quản lý thông tin quán"));
+        return list;
     }
+
+    private void replaceFragment(Fragment fragment) {
+        FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.option_content_show, fragment);
+        fragmentTransaction.commit();
+    }
+
+
 }

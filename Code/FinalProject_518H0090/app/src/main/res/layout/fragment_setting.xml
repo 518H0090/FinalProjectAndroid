@@ -3,13 +3,21 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:background="#00ACC1"
+    android:weightSum="10"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyler_view_Option"
+    <Spinner
+        android:id="@+id/option_choice_spinner"
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:paddingLeft="10dp"
     />
 
+    <FrameLayout
+        android:id="@+id/option_content_show"
+        android:layout_weight="9"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+    />
 </LinearLayout>
