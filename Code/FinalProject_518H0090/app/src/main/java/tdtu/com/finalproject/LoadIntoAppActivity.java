@@ -17,7 +17,8 @@ public class LoadIntoAppActivity extends AppCompatActivity {
         setContentView(R.layout.activity_load_into_app);
 
         progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("Vui lòng chờ ứng dụng thực hiện");
+        progressDialog.setTitle("Thông Báo");
+        progressDialog.setMessage("Vui Lòng Đợi Ứng Dụng Thực Thi");
         progressDialog.show();
 
         Handler handler = new Handler();
