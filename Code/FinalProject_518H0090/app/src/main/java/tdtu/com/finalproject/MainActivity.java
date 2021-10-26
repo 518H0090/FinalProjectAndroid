@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView .O
         //Khi vừa vào Sẽ tự động chọn Home Fragment;
         replaceFragment(HomeFragment.getInstance());
         navigationView.getMenu().findItem(R.id.menu_home).setChecked(true);
+
     }
 
     @Override

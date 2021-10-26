@@ -2,29 +2,24 @@ package tdtu.com.finalproject.fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.Spinner;
-import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 import tdtu.com.finalproject.R;
-import tdtu.com.finalproject.adapter.OptionAdapterSpinner;
-import tdtu.com.finalproject.model.OptionDo;
+import tdtu.com.finalproject.adapter.ViewPager2Adapter;
 
-public class SettingFragment extends Fragment  {
+public class SettingFragment extends Fragment {
 
-    private Spinner spinner;
-    private List<OptionDo> doList;
-    private OptionAdapterSpinner adapterSpinner;
+    private TabLayout tabLayout;
+    private ViewPager2 viewPager2;
 
     public SettingFragment() {
         // Required empty public constructor
@@ -41,55 +36,29 @@ public class SettingFragment extends Fragment  {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_setting, container, false);
 
-        spinner = view.findViewById(R.id.option_choice_spinner);
-        doList = new ArrayList<OptionDo>(addListToDo());
+        tabLayout = view.findViewById(R.id.tablayoutMediator);
+        viewPager2 = view.findViewById(R.id.view_pager2);
 
-        adapterSpinner = new OptionAdapterSpinner(
-                getActivity(),
-                R.layout.recyler_view_setting_menu,
-                doList
-        );
+        ViewPager2Adapter viewPager2Adapter = new ViewPager2Adapter(getActivity());
+        viewPager2.setAdapter(viewPager2Adapter);
 
-        spinner.setAdapter(adapterSpinner);
-
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        new TabLayoutMediator(tabLayout, viewPager2, new TabLayoutMediator.TabConfigurationStrategy() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                OptionDo questionDo = doList.get(position);
-                if (questionDo.getKeyOptions().equals("tableManager")) {
-                    replaceFragment(new UserFragment());
-                } else if (questionDo.getKeyOptions().equals("menuManager")) {
-
-                } else if (questionDo.getKeyOptions().equals("userManager")) {
-
-                } else if (questionDo.getKeyOptions().equals("inforManager")) {
-
+            public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
+                switch (position) {
+                    case 0:
+                        tab.setText("Location");
+                        break;
+                    case 1:
+                        tab.setText("Menu");
+                        break;
+                    case 2:
+                        tab.setText("User");
+                        break;
                 }
             }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
+        }).attach();
         return view;
     }
-
-    private List<OptionDo> addListToDo() {
-        List<OptionDo> list = new ArrayList<>();
-        list.add(new OptionDo("tableManager","Quản lý khu vực - Điểm bán"));
-        list.add(new OptionDo("menuManager","Quản lý Menu"));
-        list.add(new OptionDo("userManager","Quản lý người dùng"));
-        list.add(new OptionDo("inforManager","Quản lý thông tin quán"));
-        return list;
-    }
-
-    private void replaceFragment(Fragment fragment) {
-        FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.option_content_show, fragment);
-        fragmentTransaction.commit();
-    }
-
 
 }
