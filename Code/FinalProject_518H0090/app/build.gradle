@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -39,4 +40,12 @@ dependencies {
 
 //    Circle Image View
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+//    Firebase
+    implementation platform('com.google.firebase:firebase-bom:28.4.2')
+    implementation 'com.google.firebase:firebase-analytics'
+//  Firebase Authentication
+    implementation 'com.google.firebase:firebase-auth'
+//    Firebase Realtime
+    implementation 'com.google.firebase:firebase-database'
 }

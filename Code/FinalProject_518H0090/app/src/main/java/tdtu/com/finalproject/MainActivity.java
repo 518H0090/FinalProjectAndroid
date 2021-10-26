@@ -139,6 +139,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView .O
         transaction.commit();
     }
 
+    //Function hiển thị tittle được chọn.
     private void setCheckTittleDrawer(int id) {
 
         switch (id) {
