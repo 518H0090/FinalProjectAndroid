@@ -10,14 +10,22 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import tdtu.com.finalproject.fragment.BillFragment;
 import tdtu.com.finalproject.fragment.ChangePasswordFragment;
@@ -27,7 +35,7 @@ import tdtu.com.finalproject.fragment.MyProfileFragment;
 import tdtu.com.finalproject.fragment.SettingFragment;
 
 //518H0090 - Huỳnh Trần Trung Hiếu
-public class MainActivity extends AppCompatActivity implements NavigationView .OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     //Khởi tạo giá trị để phân biệt các fragment
     private static final int FRAGMENT_HOME = 0;
@@ -42,6 +50,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView .O
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
+
+    //Circle Image kế thừa từ ImageView
+    ImageView imgUser;
+    TextView txtUserName, txtUserEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +88,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView .O
         replaceFragment(HomeFragment.getInstance());
         navigationView.getMenu().findItem(R.id.menu_home).setChecked(true);
 
+        imgUser = navigationView.getHeaderView(0).findViewById(R.id.imgUser);
+        txtUserName = navigationView.getHeaderView(0).findViewById(R.id.txtUserName);
+        txtUserEmail = navigationView.getHeaderView(0).findViewById(R.id.txtUserEmail);
+
+        showInformation();
     }
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -115,6 +133,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView .O
                 replaceFragment(new ChangePasswordFragment());
                 mCurrentFragment = FRAGMENT_CHANGE_PASSWORD;
             }
+        } else if (id == R.id.menu_sign_out) {
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
         }
 
         setCheckTittleDrawer(id);
@@ -126,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView .O
     @Override
     public void onBackPressed() {
 
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)){
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
@@ -136,7 +159,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView .O
 
     private void replaceFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.content_frame , fragment);
+        transaction.replace(R.id.content_frame, fragment);
         transaction.commit();
     }
 
@@ -199,5 +222,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView .O
                 break;
         }
 
+    }
+
+    private void showInformation() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        String name = user.getDisplayName();
+        String email = user.getEmail();
+        Uri photoUrl = user.getPhotoUrl();
+
+
+        if (name == null) {
+            txtUserName.setVisibility(View.GONE);
+        } else {
+            txtUserName.setVisibility(View.VISIBLE);
+            txtUserName.setText(name);
+        }
+
+        txtUserEmail.setText(email);
+
+        //Thư viện load ảnh với Url nếu ko có mặc định chọn logo_cafe
+        Glide.with(this).load(photoUrl).error(R.drawable.logo_cafe).into(imgUser);
     }
 }

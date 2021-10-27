@@ -7,28 +7,36 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-public class LoadIntoAppActivity extends AppCompatActivity {
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
-    private ProgressDialog progressDialog;
+public class LoadIntoAppActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_load_into_app);
 
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("Thông Báo");
-        progressDialog.setMessage("Vui Lòng Đợi Ứng Dụng Thực Thi");
-        progressDialog.show();
-
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                progressDialog.cancel();
-                Intent intent = new Intent(LoadIntoAppActivity.this, LoginActivity.class);
-                startActivity(intent);
+
+                nextActivity();
             }
         },3000);
+    }
+
+    private void nextActivity() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user == null) {
+            Intent intent = new Intent(LoadIntoAppActivity.this, LoginActivity.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(LoadIntoAppActivity.this, MainActivity.class);
+            startActivity(intent);
+        }
+
+        finish();
     }
 }
