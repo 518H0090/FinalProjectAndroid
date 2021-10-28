@@ -122,6 +122,8 @@ public class ChangePasswordFragment extends Fragment {
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
                                         Toast.makeText(getActivity(), "Xác thực thành công", Toast.LENGTH_SHORT).show();
+                                        dialog.dismiss();
+                                        UpdatePasswordFirebase();
                                     } else {
                                         Toast.makeText(getActivity(), "Xác thực thất bại", Toast.LENGTH_SHORT).show();
                                     }
