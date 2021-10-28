@@ -31,6 +31,7 @@ public class AddUserFragment extends Fragment {
     EditText editEmail, editPassword , editRePassword;
     FirebaseAuth auth;
     ProgressDialog progressDialog;
+    String oldUser;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,6 +44,8 @@ public class AddUserFragment extends Fragment {
         editPassword = view.findViewById(R.id.editPassword);
         editRePassword = view.findViewById(R.id.editRePassword);
         progressDialog = new ProgressDialog(getActivity());
+
+        auth = FirebaseAuth.getInstance();
 
         btnDestroy.setOnClickListener(v -> {
             if (getParentFragmentManager() != null) {
@@ -61,7 +64,6 @@ public class AddUserFragment extends Fragment {
     }
 
     private void addNewUserToSystem() {
-        auth = FirebaseAuth.getInstance();
 
         String email = editEmail.getText().toString().trim();
         String password = editPassword.getText().toString().trim();
@@ -69,9 +71,11 @@ public class AddUserFragment extends Fragment {
         progressDialog.show();
 
         if (email.isEmpty() || password.isEmpty() || repassword.isEmpty()) {
+            progressDialog.dismiss();
             Toast.makeText(getActivity(), "Vui Lòng Nhập Đủ Thông Tin", Toast.LENGTH_SHORT).show();
         } else {
             if (!password.equals(repassword)) {
+                progressDialog.dismiss();
                 Toast.makeText(getActivity(), "Mật Khẩu Không Trùng Khớp", Toast.LENGTH_SHORT).show();
             } else {
                 auth.createUserWithEmailAndPassword(email, password)
@@ -83,6 +87,7 @@ public class AddUserFragment extends Fragment {
 //                                    FirebaseUser user = auth.getCurrentUser();
                                     progressDialog.dismiss();
                                     Toast.makeText(getActivity(), "Thêm Người Dùng Thành Công", Toast.LENGTH_SHORT).show();
+                                    FirebaseAuth.getInstance().signOut();
                                 } else {
                                     progressDialog.dismiss();
                                     // If sign in fails, display a message to the user.

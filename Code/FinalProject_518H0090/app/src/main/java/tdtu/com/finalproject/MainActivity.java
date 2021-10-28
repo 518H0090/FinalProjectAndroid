@@ -1,5 +1,9 @@
 package tdtu.com.finalproject;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,8 +15,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,11 +28,14 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import java.io.IOException;
 
 import tdtu.com.finalproject.fragment.BillFragment;
 import tdtu.com.finalproject.fragment.ChangePasswordFragment;
@@ -36,6 +46,9 @@ import tdtu.com.finalproject.fragment.SettingFragment;
 
 //518H0090 - Huỳnh Trần Trung Hiếu
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    //Giá trị Open Gallery
+    public static final int REQUEST_OPEN_GALLERY = 9;
 
     //Khởi tạo giá trị để phân biệt các fragment
     private static final int FRAGMENT_HOME = 0;
@@ -50,6 +63,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
+    MyProfileFragment myProfileFragment = new MyProfileFragment();
+
+    ActivityResultLauncher<Intent> mActivityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+            if(result.getResultCode() == RESULT_OK) {
+                Intent intent = result.getData();
+                if (intent == null) {
+                    return;
+                }
+                Uri uri = intent.getData();
+                myProfileFragment.setfUri(uri);
+                try {
+                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+                    myProfileFragment.setBitmapProfile(bitmap);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    });
 
     //Circle Image kế thừa từ ImageView
     ImageView imgUser;
@@ -125,7 +160,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         } else if (id == R.id.menu_my_profile) {
             if (mCurrentFragment != FRAGMENT_MY_PROFILE) {
-                replaceFragment(new MyProfileFragment());
+                replaceFragment(myProfileFragment);
                 mCurrentFragment = FRAGMENT_MY_PROFILE;
             }
         } else if (id == R.id.menu_change_password) {
@@ -224,7 +259,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-    private void showInformation() {
+    public void showInformation() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         String name = user.getDisplayName();
@@ -244,4 +279,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //Thư viện load ảnh với Url nếu ko có mặc định chọn logo_cafe
         Glide.with(this).load(photoUrl).error(R.drawable.logo_cafe).into(imgUser);
     }
+
+    //
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_OPEN_GALLERY) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                openGallery();
+            } else {
+                Toast.makeText(MainActivity.this, "Vui lòng cho phép ứng dụng truy cập Gallery", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    public void openGallery() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        mActivityResultLauncher.launch(Intent.createChooser(intent, "Select Picture"));
+
+    }
+
+
 }
