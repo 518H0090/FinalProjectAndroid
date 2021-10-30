@@ -2,11 +2,16 @@ package tdtu.com.finalprojectby518h0090.fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -23,7 +28,13 @@ public class ListUserFragment extends Fragment {
     ListView listViewUser;
     ArrayAdapter adapter;
     List<String> listGmai;
-    Button btnAddNewUser;
+    Button btnAddNewUserPage;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -31,7 +42,6 @@ public class ListUserFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_list_user, container, false);
 
         listViewUser = view.findViewById(R.id.listViewUser);
-        btnAddNewUser = view.findViewById(R.id.btnAddNewUser);
 
         listGmai = new ArrayList<String>(TempTest());
 
@@ -42,13 +52,18 @@ public class ListUserFragment extends Fragment {
         );
         listViewUser.setAdapter(adapter);
 
-        btnAddNewUser.setOnClickListener(v -> {
-            FragmentManager fragmentManager = getParentFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_add_test, new AddUserFragment());
-            fragmentTransaction.addToBackStack(AddUserFragment.class.getName());
-            fragmentTransaction.commit();
+        btnAddNewUserPage = view.findViewById(R.id.btnAddNewUserPage);
+        btnAddNewUserPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_add_test, new AddUserFragment());
+                fragmentTransaction.addToBackStack(AddUserFragment.class.getName());
+                fragmentTransaction.commit();
+            }
         });
+
 
         return view;
     }

@@ -82,6 +82,9 @@ public class AddUserFragment extends Fragment {
 //                                    FirebaseUser user = auth.getCurrentUser();
                                     progressDialog.dismiss();
                                     Toast.makeText(getActivity(), "Thêm Người Dùng Thành Công", Toast.LENGTH_SHORT).show();
+                                    if (getParentFragmentManager() != null) {
+                                        getParentFragmentManager().popBackStack();
+                                    }
                                 } else {
                                     progressDialog.dismiss();
                                     // If sign in fails, display a message to the user.
