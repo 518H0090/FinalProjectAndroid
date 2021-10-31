@@ -3,7 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="10dp">
+    android:layout_marginStart="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginBottom="10dp"
+    app:cardCornerRadius="30dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -12,16 +16,19 @@
         <ImageView
             android:id="@+id/imageViewMenu"
             android:layout_width="150dp"
-            android:layout_height="150dp" />
+            android:layout_height="160dp"
+            android:scaleType="fitXY" />
 
         <TextView
             android:id="@+id/textNameDrink"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
             android:layout_toRightOf="@+id/imageViewMenu"
             android:paddingLeft="16dp"
             android:text="Name Drink"
-            android:textSize="26sp"
+            android:textSize="22sp"
             android:textStyle="bold" />
 
         <TextView
@@ -29,10 +36,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textNameDrink"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
             android:layout_toRightOf="@+id/imageViewMenu"
             android:paddingLeft="16dp"
             android:text="Price Drink"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnActionMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textPriceDrink"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/imageViewMenu"
+            android:text="Action" />
 
     </RelativeLayout>
 

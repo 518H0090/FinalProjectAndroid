@@ -136,30 +136,21 @@ public class AddMenuFragment extends Fragment {
                     NewRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
-                            Toast.makeText(getActivity(), "Đăng Ảnh Thành Công", Toast.LENGTH_SHORT).show();
+
 
                             String menuKey = databaseReference.push().getKey();
 
                             String nameDrink = editNameDrink.getText().toString();
                             String tagDrink = editTagDrink.getText().toString();
-                            Double PriceDrink = Double.valueOf(editPriceDrink.getText().toString());
+                            Integer PriceDrink = Integer.parseInt(editPriceDrink.getText().toString());
 
                             MenuDrink menuDrink = new MenuDrink(menuKey, tagDrink , nameDrink, uri.toString(),PriceDrink);
                             databaseReference.child(menuKey).setValue(menuDrink);
+                            Toast.makeText(getActivity(), "Thêm Menu Thành Công", Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
             });
-
-
-
-//                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-//                @Override
-//                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
-//                }
-//            });
-
 
         }else {
             Toast.makeText(getActivity(), "Không Có File Ảnh Được Chọn", Toast.LENGTH_SHORT).show();

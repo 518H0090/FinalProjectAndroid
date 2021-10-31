@@ -4,11 +4,11 @@
     <group>
         <item
             android:id="@+id/menu_table_change"
-            android:title="Edit Menu" />
+            android:title="Edit Location" />
 
         <item
             android:id="@+id/menu_table_delete"
-            android:title="Delete Menu" />
+            android:title="Delete Location" />
     </group>
 
 </menu>

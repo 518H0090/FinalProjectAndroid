@@ -11,12 +11,12 @@ public class MenuDrink {
     private String tagDrink;
     private String nameDrink;
     private String imageDrink;
-    private double priceDrink;
+    private int priceDrink;
 
     public MenuDrink() {
     }
 
-    public MenuDrink(String menuDrinkKey, String tagDrink, String nameDrink, String imageDrink, double priceDrink) {
+    public MenuDrink(String menuDrinkKey, String tagDrink, String nameDrink, String imageDrink, int priceDrink) {
         this.menuDrinkKey = menuDrinkKey;
         this.tagDrink = tagDrink;
         this.nameDrink = nameDrink;
@@ -56,11 +56,11 @@ public class MenuDrink {
         this.imageDrink = imageDrink;
     }
 
-    public double getPriceDrink() {
+    public int getPriceDrink() {
         return priceDrink;
     }
 
-    public void setPriceDrink(double priceDrink) {
+    public void setPriceDrink(int priceDrink) {
         this.priceDrink = priceDrink;
     }
 
