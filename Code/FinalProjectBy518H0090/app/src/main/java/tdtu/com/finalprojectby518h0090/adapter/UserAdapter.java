@@ -61,7 +61,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
 
                         switch (item.getItemId()) {
                             case R.id.menu_user_change:
-                                userSelectOption.onClickEditEmail(user);
+                                userSelectOption.onClickEditEmail(position);
                                 break;
 
                             case R.id.menu_user_delete:
@@ -70,6 +70,10 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
 
                             case R.id.menu_password_change:
                                 userSelectOption.onClickEditPassword(user);
+                                break;
+
+                            case R.id.menu_permission_change:
+                                userSelectOption.onChangePermission(user);
                                 break;
                         }
 

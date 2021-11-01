@@ -1,5 +1,7 @@
 package tdtu.com.finalprojectby518h0090;
 
+import static tdtu.com.finalprojectby518h0090.DefaultTag.userPermissionAdmin;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,6 +20,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import tdtu.com.finalprojectby518h0090.model.User;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -27,6 +33,8 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnLogin, btnOut;
     private ProgressDialog progressDialog;
     FirebaseAuth auth;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
 
     SharedPreferences sharedPreferences;
 
@@ -41,6 +49,8 @@ public class LoginActivity extends AppCompatActivity {
         editPassword = findViewById(R.id.editPassword);
         textForgetPassword = findViewById(R.id.textForgetPassword);
         checkLogin = findViewById(R.id.checkLogin);
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference();
 
         progressDialog = new ProgressDialog(this);
         sharedPreferences = getSharedPreferences("checkLogin" , MODE_PRIVATE);
@@ -92,6 +102,9 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
+                            String userKey = databaseReference.push().getKey();
+                            User user = new User(userKey, email, password, userPermissionAdmin);
+                            databaseReference.child("user").child(userKey).setValue(user);
                             Toast.makeText(LoginActivity.this, "Tạo Tài Khoản Admin \n nhoxhieuro5@gmail.com", Toast.LENGTH_SHORT).show();
                         } else {
                             // If sign in fails, display a message to the user.
