@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+        <item
+            android:id="@+id/menu_user_change"
+            android:title="Edit Email" />
+
+        <item
+            android:id="@+id/menu_password_change"
+            android:title="Edit Password" />
+
+        <item
+            android:id="@+id/menu_user_delete"
+            android:title="Delete Email" />
+    </group>
+
+</menu>

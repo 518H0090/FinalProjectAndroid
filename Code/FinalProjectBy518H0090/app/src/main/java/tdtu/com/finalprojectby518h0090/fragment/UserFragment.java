@@ -15,14 +15,10 @@ import tdtu.com.finalprojectby518h0090.R;
 
 public class UserFragment extends Fragment {
 
-    LinearLayout layout;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_user, container, false);
-
-        layout = view.findViewById(R.id.fragment_add_test);
 
         FragmentManager fragmentManager = getChildFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

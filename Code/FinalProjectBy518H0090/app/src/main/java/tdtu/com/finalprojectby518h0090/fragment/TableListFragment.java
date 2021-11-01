@@ -12,6 +12,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -45,6 +47,8 @@ public class TableListFragment extends Fragment implements TableSelectOption {
     private TableAdapter adapter;
     private List<Table> list;
     private DatabaseReference mDatabase;
+    Button btnAddNewTablePage;
+
 // ...
 
     @Override
@@ -55,6 +59,20 @@ public class TableListFragment extends Fragment implements TableSelectOption {
 
         recyclerView = view.findViewById(R.id.recyler_table_list);
         mDatabase = FirebaseDatabase.getInstance().getReference();
+
+        btnAddNewTablePage = view.findViewById(R.id.btnAddNewTablePage);
+
+        btnAddNewTablePage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_for_replace_table, new AddTableFragment());
+                fragmentTransaction.addToBackStack(AddTableFragment.class.getName());
+                fragmentTransaction.commit();
+            }
+        });
+
 
         list = new ArrayList<>();
         adapter = new TableAdapter();

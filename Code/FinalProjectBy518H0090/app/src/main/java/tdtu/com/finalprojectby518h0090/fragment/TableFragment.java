@@ -31,7 +31,6 @@ import tdtu.com.finalprojectby518h0090.model.Table;
 public class TableFragment extends Fragment {
 
     FrameLayout fragment_for_replace_table;
-    Button btnAddNewTablePage;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,23 +45,11 @@ public class TableFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_table, container, false);
 
         fragment_for_replace_table = view.findViewById(R.id.fragment_for_replace_table);
-        btnAddNewTablePage = view.findViewById(R.id.btnAddNewTablePage);
 
         FragmentManager fragmentManager = getChildFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.fragment_for_replace_table, new TableListFragment());
         fragmentTransaction.commit();
-
-        btnAddNewTablePage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentManager fragmentManager = getChildFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_for_replace_table, new AddTableFragment());
-                fragmentTransaction.addToBackStack(AddTableFragment.class.getName());
-                fragmentTransaction.commit();
-            }
-        });
 
         return view;
     }

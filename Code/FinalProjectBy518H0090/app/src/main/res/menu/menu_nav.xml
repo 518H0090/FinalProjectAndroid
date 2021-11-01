@@ -10,7 +10,7 @@
             android:title="Bill" />
         <item
             android:id="@+id/menu_customer"
-            android:title="Customer" />
+            android:title="Contract" />
         <item
             android:id="@+id/menu_setting"
             android:title="Setting" />

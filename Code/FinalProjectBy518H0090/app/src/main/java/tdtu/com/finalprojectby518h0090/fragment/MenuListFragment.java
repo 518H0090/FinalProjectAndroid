@@ -15,6 +15,8 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -59,6 +61,7 @@ public class MenuListFragment extends Fragment implements MenuSelectionOption {
     MenuAdapter menuAdapter;
     FirebaseStorage firebaseStorage;
     StorageReference storageReference;
+    Button btnAddNewMenuChangePage;
 
     ActivityResultLauncher<Intent> mResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
@@ -92,6 +95,8 @@ public class MenuListFragment extends Fragment implements MenuSelectionOption {
         View view = inflater.inflate(R.layout.fragment_menu_list, container, false);
 
         recylerViewMenu = view.findViewById(R.id.recylerViewMenu);
+        btnAddNewMenuChangePage = view.findViewById(R.id.btnAddNewMenuChangePage);
+
         database = FirebaseDatabase.getInstance();
         databaseReference = database.getReference();
 
@@ -109,6 +114,13 @@ public class MenuListFragment extends Fragment implements MenuSelectionOption {
         addMenuListFirebase();
 
         menuAdapter.setMenuSelectionOption(this);
+
+        btnAddNewMenuChangePage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changePageAddNewMenu();
+            }
+        });
 
         return view;
     }
@@ -212,6 +224,8 @@ public class MenuListFragment extends Fragment implements MenuSelectionOption {
     public void onClickEdit(MenuDrink menuDrink) {
         Dialog dialog = new Dialog(getActivity());
         dialog.setContentView(R.layout.dialog_edit_menu);
+        dialog.setCanceledOnTouchOutside(false);
+
         EditText editNameDrink = dialog.findViewById(R.id.editNameDrink);
         EditText editTagDrink = dialog.findViewById(R.id.editTagDrink);
         EditText editPriceDrink = dialog.findViewById(R.id.editPriceDrink);
@@ -243,7 +257,7 @@ public class MenuListFragment extends Fragment implements MenuSelectionOption {
                 String tagdrink = editTagDrink.getText().toString();
                 int pricedrink = Integer.parseInt(editPriceDrink.getText().toString());
 
-                if (mUri != null) {
+                if (mUri != null && namedrink != null && tagdrink != null) {
                     StorageReference deleteImageBeforeUpdate = storageReference.child("uploads").getStorage().getReferenceFromUrl(menuDrink.getImageDrink());
                     deleteImageBeforeUpdate.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
@@ -279,9 +293,9 @@ public class MenuListFragment extends Fragment implements MenuSelectionOption {
 
                         }
                     });
-                } else if (namedrink.isEmpty() || tagdrink.isEmpty()){
+                } else if (namedrink.isEmpty() && mUri == null || tagdrink.isEmpty() && mUri == null){
                     Toast.makeText(getActivity(), "Thiếu dữ liệu", Toast.LENGTH_SHORT).show();
-                } else if (mUri == null) {
+                } else if (mUri == null && namedrink != null && tagdrink != null) {
                     String menuKey = menuDrink.getMenuDrinkKey();
                     HashMap<String, Object> result = new HashMap<>();
                     result.put("tagDrink", tagdrink);
@@ -304,6 +318,14 @@ public class MenuListFragment extends Fragment implements MenuSelectionOption {
         });
 
         dialog.show();
+    }
+
+    private void changePageAddNewMenu() {
+        FragmentManager fragmentManager = getParentFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame_layout_replace_menu, new AddMenuFragment());
+        fragmentTransaction.addToBackStack(AddMenuFragment.class.getName());
+        fragmentTransaction.commit();
     }
 
 }

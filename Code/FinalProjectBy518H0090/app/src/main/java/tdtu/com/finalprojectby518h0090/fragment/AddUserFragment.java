@@ -1,5 +1,7 @@
 package tdtu.com.finalprojectby518h0090.fragment;
 
+import static tdtu.com.finalprojectby518h0090.DefaultTag.userPermissionStaff;
+
 import android.app.ProgressDialog;
 import android.os.Bundle;
 
@@ -14,11 +16,16 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import tdtu.com.finalprojectby518h0090.R;
+import tdtu.com.finalprojectby518h0090.model.User;
 
 public class AddUserFragment extends Fragment {
 
@@ -26,7 +33,8 @@ public class AddUserFragment extends Fragment {
     EditText editEmail, editPassword , editRePassword;
     FirebaseAuth auth;
     ProgressDialog progressDialog;
-    String oldUser;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,6 +46,9 @@ public class AddUserFragment extends Fragment {
         editEmail = view.findViewById(R.id.editEmail);
         editPassword = view.findViewById(R.id.editPassword);
         editRePassword = view.findViewById(R.id.editRePassword);
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference();
+
         progressDialog = new ProgressDialog(getActivity());
 
         auth = FirebaseAuth.getInstance();
@@ -81,7 +92,12 @@ public class AddUserFragment extends Fragment {
                                     // Sign in success, update UI with the signed-in user's information
 //                                    FirebaseUser user = auth.getCurrentUser();
                                     progressDialog.dismiss();
-                                    Toast.makeText(getActivity(), "Thêm Người Dùng Thành Công", Toast.LENGTH_SHORT).show();
+
+                                    String customerKey = databaseReference.push().getKey();
+
+                                    User user = new User(customerKey , email, password , userPermissionStaff);
+                                    databaseReference.child("user").child(customerKey).setValue(user);
+                                    Toast.makeText(getActivity(), "Thêm Người dùng thành công", Toast.LENGTH_SHORT).show();
                                     if (getParentFragmentManager() != null) {
                                         getParentFragmentManager().popBackStack();
                                     }

@@ -4,13 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btnAddNewMenuChangePage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="Thêm Thức Uống" />
-
     <FrameLayout
         android:id="@+id/frame_layout_replace_menu"
         android:layout_width="match_parent"
