@@ -147,6 +147,9 @@ public class AddMenuFragment extends Fragment {
                             MenuDrink menuDrink = new MenuDrink(menuKey, tagDrink , nameDrink, uri.toString(),PriceDrink);
                             databaseReference.child(menuKey).setValue(menuDrink);
                             Toast.makeText(getActivity(), "Thêm Menu Thành Công", Toast.LENGTH_SHORT).show();
+                            if (getParentFragmentManager() != null) {
+                                getParentFragmentManager().popBackStack();
+                            }
                         }
                     });
                 }

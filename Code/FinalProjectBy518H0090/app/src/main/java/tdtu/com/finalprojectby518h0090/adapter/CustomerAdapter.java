@@ -6,6 +6,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.TextView;
@@ -13,21 +15,24 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import tdtu.com.finalprojectby518h0090.CustomerSelectOption;
 import tdtu.com.finalprojectby518h0090.R;
 import tdtu.com.finalprojectby518h0090.model.Customer;
 
-public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.CustomerViewHolder> {
+public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.CustomerViewHolder> implements Filterable {
 
     private Context context;
     private List<Customer> list;
+    private List<Customer> oldList;
     private CustomerSelectOption customerSelectOption;
 
     public CustomerAdapter(Context context, List<Customer> list) {
         this.context = context;
         this.list = list;
+        this.oldList = list;
     }
 
     public void setCustomerSelectOption(CustomerSelectOption customerSelectOption) {
@@ -103,4 +108,37 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
 
         }
     }
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                String newSearch = constraint.toString();
+                if (newSearch.isEmpty()) {
+                    list = oldList;
+                } else {
+                    List<Customer> newList = new ArrayList<>();
+                    for (Customer customer : oldList) {
+                        if (customer.getCustomerName().toLowerCase().contains(newSearch.toLowerCase())) {
+                            newList.add(customer);
+                        }
+                    }
+                    list = newList;
+                }
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = list;
+
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                list = (List<Customer>) results.values;
+                notifyDataSetChanged();
+            }
+        };
+    }
+
 }

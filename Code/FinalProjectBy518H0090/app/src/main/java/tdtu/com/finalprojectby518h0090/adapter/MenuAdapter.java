@@ -6,6 +6,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
@@ -15,21 +17,24 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import tdtu.com.finalprojectby518h0090.MenuSelectionOption;
 import tdtu.com.finalprojectby518h0090.R;
 import tdtu.com.finalprojectby518h0090.model.MenuDrink;
 
-public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder> {
+public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder> implements Filterable {
 
     private Context context;
     private List<MenuDrink> list;
+    private List<MenuDrink> oldList;
     private MenuSelectionOption menuSelectionOption;
 
     public MenuAdapter(Context context, List<MenuDrink> list) {
         this.context = context;
         this.list = list;
+        this.oldList = list;
     }
 
     public void setMenuSelectionOption(MenuSelectionOption menuSelectionOption) {
@@ -102,6 +107,38 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder
             btnActionMenu = itemView.findViewById(R.id.btnActionMenu);
 
         }
+    }
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                String stringSearch = constraint.toString();
+                if (stringSearch.isEmpty()) {
+                    list = oldList;
+                } else {
+                    List<MenuDrink> newList = new ArrayList<>();
+                    for (MenuDrink menuDrink : oldList) {
+                        if (menuDrink.getNameDrink().toLowerCase().contains(stringSearch.toLowerCase())){
+                            newList.add(menuDrink);
+                        }
+                    }
+                    list = newList;
+                }
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = list;
+
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                list = (List<MenuDrink>) results.values;
+                notifyDataSetChanged();
+            }
+        };
     }
 
 }

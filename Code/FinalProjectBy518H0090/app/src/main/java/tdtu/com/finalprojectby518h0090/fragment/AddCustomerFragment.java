@@ -71,6 +71,9 @@ public class AddCustomerFragment extends Fragment {
             Customer customer = new Customer(customerKey, customerName, customerAddress , customerPhone);
             databaseReference.child("customer").child(customerKey).setValue(customer);
             Toast.makeText(getActivity(), "Thêm Thành Công", Toast.LENGTH_SHORT).show();
+            if (getParentFragmentManager() != null) {
+                getParentFragmentManager().popBackStack();
+            }
         }
 
     }

@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/TRUNG HIEU PC3/AndroidStudioProjects/FinalProjectBy518H0090/app/src/main/res/drawable/baseline_search_24.xml" value="0.2703125" />
         <entry key="..\:/Users/TRUNG HIEU PC3/AndroidStudioProjects/FinalProjectBy518H0090/app/src/main/res/drawable/baseline_vpn_key_24.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/TRUNG HIEU PC3/AndroidStudioProjects/FinalProjectBy518H0090/app/src/main/res/layout/activity_forget_password.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/TRUNG HIEU PC3/AndroidStudioProjects/FinalProjectBy518H0090/app/src/main/res/layout/activity_load_into_app.xml" value="0.25416666666666665" />
@@ -43,6 +44,7 @@
         <entry key="..\:/Users/TRUNG HIEU PC3/AndroidStudioProjects/FinalProjectBy518H0090/app/src/main/res/menu/menu_option_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/TRUNG HIEU PC3/AndroidStudioProjects/FinalProjectBy518H0090/app/src/main/res/menu/menu_option_table.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/TRUNG HIEU PC3/AndroidStudioProjects/FinalProjectBy518H0090/app/src/main/res/menu/menu_option_user.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/TRUNG HIEU PC3/AndroidStudioProjects/FinalProjectBy518H0090/app/src/main/res/menu/menu_search.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>
