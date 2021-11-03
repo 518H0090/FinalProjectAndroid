@@ -7,23 +7,32 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.nex3z.notificationbadge.NotificationBadge;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import tdtu.com.finalprojectby518h0090.R;
 import tdtu.com.finalprojectby518h0090.cartproduct.listener.IMenuChange;
+import tdtu.com.finalprojectby518h0090.cartproduct.listener.ITableBadge;
+import tdtu.com.finalprojectby518h0090.cartproduct.model.CartDrink;
 import tdtu.com.finalprojectby518h0090.model.Table;
 
-public class ShowTableAdapter extends RecyclerView.Adapter<ShowTableAdapter.ShowTableViewHolder> {
+public class ShowTableAdapter extends RecyclerView.Adapter<ShowTableAdapter.ShowTableViewHolder> implements ITableBadge {
 
     private Context context;
     private List<Table> list;
     private IMenuChange menuChange;
+    private ITableBadge iTableBadge;
 
     public ShowTableAdapter(Context context, List<Table> list) {
         this.context = context;
@@ -56,12 +65,45 @@ public class ShowTableAdapter extends RecyclerView.Adapter<ShowTableAdapter.Show
                 menuChange.getTable(table);
             }
         });
+
+        setCountBadge(table, holder);
+        iTableBadge = this;
+    }
+
+    private void setCountBadge(Table table, ShowTableViewHolder holder) {
+        FirebaseDatabase.getInstance().getReference("cart").child(table.getTableName()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                List<CartDrink> cartDrinkList = new ArrayList<>();
+                for (DataSnapshot cartSnap : snapshot.getChildren()) {
+                    CartDrink cartDrink = cartSnap.getValue(CartDrink.class);
+                    cartDrinkList.add(cartDrink);
+                }
+                iTableBadge.getCountList(cartDrinkList,holder);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(context, "", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    @Override
+    public void getCountList(List<CartDrink> cartDrinks, ShowTableViewHolder holder) {
+        int count = 0;
+        for (CartDrink cartDrink : cartDrinks) {
+            count += cartDrink.getQuantity();
+        }
+        holder.badge.setNumber(count);
     }
 
     @Override
     public int getItemCount() {
         return list.size();
     }
+
+
 
     public class ShowTableViewHolder extends RecyclerView.ViewHolder {
 
