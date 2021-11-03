@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TestProductCart">
         <activity
+            android:name=".CartActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddMenuDrink"
             android:exported="false" />
         <activity

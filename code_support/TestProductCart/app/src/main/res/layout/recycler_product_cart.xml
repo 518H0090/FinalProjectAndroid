@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/textName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tên Thức Uống"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textName"
+        android:text="Giá"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textPrice"
+        android:text="Số Lượng"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textQuantity"
+        android:text="Thêm"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textSubtract"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textQuantity"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/textAdd"
+        android:text="Giảm"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textQuantity"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/textSubtract"
+        android:text="Xóa"
+        android:textSize="20sp" />
+
+
+</RelativeLayout>

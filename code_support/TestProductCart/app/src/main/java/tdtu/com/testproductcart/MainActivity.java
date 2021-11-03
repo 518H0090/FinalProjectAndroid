@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements AddToCartLis, Car
     List<MenuDrink> list;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
+    FrameLayout cartProduct;
 
     int countValue = 0;
     CartCount listener;
@@ -58,6 +60,16 @@ public class MainActivity extends AppCompatActivity implements AddToCartLis, Car
         list = new ArrayList<>();
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
+        cartProduct = findViewById(R.id.cartProduct);
+
+        //Chuyển Trang
+        cartProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CartActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         btnChangePage.setOnClickListener(new View.OnClickListener() {
@@ -143,7 +155,7 @@ public class MainActivity extends AppCompatActivity implements AddToCartLis, Car
                     cartDrink.setQuantity(cartDrink.getQuantity()+1);
                     Map<String , Object> result = new HashMap<>();
                     result.put("quantity", cartDrink.getQuantity());
-                    result.put("totalPrice", cartDrink.getTotalPrice());
+                    result.put("totalPrice", cartDrink.getQuantity() * cartDrink.getDrinkPrice());
 
                     //Update Cart
                     userCart.child(menuDrink.getDrinkKey()).updateChildren(result);
