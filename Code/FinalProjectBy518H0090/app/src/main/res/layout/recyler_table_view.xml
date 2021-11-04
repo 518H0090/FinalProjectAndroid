@@ -15,16 +15,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tCustomer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Khách Hàng"
-            android:textSize="20sp" />
-
-
-
         <ImageView
             android:id="@+id/tableIcon"
             android:layout_width="100dp"

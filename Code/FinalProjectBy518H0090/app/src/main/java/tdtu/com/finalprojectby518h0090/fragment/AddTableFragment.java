@@ -69,7 +69,7 @@ public class AddTableFragment extends Fragment {
         } else {
             String keyValue = mDatabase.push().getKey();
 
-            Table table = new Table(keyValue, "", tableName, DefaultTag.statusReady);
+            Table table = new Table(keyValue, tableName);
 
             mDatabase.child("table").child(keyValue).setValue(table);
             mDatabase.child("table").child("keyValue").addListenerForSingleValueEvent(new ValueEventListener() {

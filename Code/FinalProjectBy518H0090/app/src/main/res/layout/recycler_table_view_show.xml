@@ -15,20 +15,10 @@
         android:layout_height="match_parent"
         >
 
-        <TextView
-            android:id="@+id/tCustomer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Khách Hàng"
-
-            android:textSize="20sp" />
-
         <FrameLayout
             android:id="@+id/productCart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tCustomer"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="-4dp">
 
@@ -51,20 +41,11 @@
 
         </FrameLayout>
 
-        <ImageView
-            android:id="@+id/btnShowMenu"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_below="@+id/productCart"
-            android:layout_centerHorizontal="true"
-
-            android:src="@drawable/ic_baseline_menu_open_24" />
-
         <TextView
             android:id="@+id/tTableName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/btnShowMenu"
+            android:layout_below="@+id/productCart"
             android:layout_marginTop="10dp"
             android:background="#0087FD"
             android:gravity="center"

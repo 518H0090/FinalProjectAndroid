@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -57,9 +58,8 @@ public class ShowTableAdapter extends RecyclerView.Adapter<ShowTableAdapter.Show
             return;
         }
 
-        holder.tCustomer.setText(table.getCustomerName());
         holder.tTableName.setText(table.getTableName());
-        holder.btnShowMenu.setOnClickListener(new View.OnClickListener() {
+        holder.linearLayoutTable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 menuChange.getTable(table);
@@ -107,20 +107,18 @@ public class ShowTableAdapter extends RecyclerView.Adapter<ShowTableAdapter.Show
 
     public class ShowTableViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tCustomer;
         FrameLayout productCart;
-        ImageView btnShowMenu;
         TextView tTableName;
         NotificationBadge badge;
+        RelativeLayout linearLayoutTable;
 
         public ShowTableViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            tCustomer = itemView.findViewById(R.id.tCustomer);
             productCart = itemView.findViewById(R.id.productCart);
-            btnShowMenu = itemView.findViewById(R.id.btnShowMenu);
             tTableName = itemView.findViewById(R.id.tTableName);
             badge = itemView.findViewById(R.id.badge);
+            linearLayoutTable = itemView.findViewById(R.id.linearLayoutTable);
 
         }
     }

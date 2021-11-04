@@ -56,7 +56,6 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.TableViewHol
             return;
         }
 
-        holder.tCustomer.setText(table.getCustomerName());
         holder.tTableName.setText(table.getTableName());
         holder.linearLayoutTable.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,14 +94,13 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.TableViewHol
 
     public class TableViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tCustomer, tTableName , tStatus;
+        TextView tTableName;
         LinearLayout linearLayoutTable;
         ImageView tableIcon;
 
         public TableViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            tCustomer = itemView.findViewById(R.id.tCustomer);
             tTableName = itemView.findViewById(R.id.tTableName);
             linearLayoutTable = itemView.findViewById(R.id.linearLayoutTable);
             tableIcon = itemView.findViewById(R.id.tableIcon);

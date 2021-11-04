@@ -7,19 +7,15 @@ import java.util.Map;
 
 public class Table {
     private String TKey;
-    private String customerName;
     private String tableName;
-    private String tableStatus;
 
     public Table() {
 
     }
 
-    public Table(String TKey, String customerName, String tableName, String tableStatus) {
+    public Table(String TKey, String tableName) {
         this.TKey = TKey;
-        this.customerName = customerName;
         this.tableName = tableName;
-        this.tableStatus = tableStatus;
     }
 
     public String getTKey() {
@@ -30,14 +26,6 @@ public class Table {
         this.TKey = TKey;
     }
 
-    public String getCustomerName() {
-        return customerName;
-    }
-
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
-
     public String getTableName() {
         return tableName;
     }
@@ -46,23 +34,13 @@ public class Table {
         this.tableName = tableName;
     }
 
-    public String getTableStatus() {
-        return tableStatus;
-    }
-
-    public void setTableStatus(String tableStatus) {
-        this.tableStatus = tableStatus;
-    }
-
     @Exclude
     public Map<String, Object> toMap() {
 
         HashMap<String, Object> result = new HashMap<>();
 
         result.put("tkey", TKey);
-        result.put("customerName", customerName);
         result.put("tableName", tableName);
-        result.put("tableStatus", tableStatus);
 
         return result;
     }

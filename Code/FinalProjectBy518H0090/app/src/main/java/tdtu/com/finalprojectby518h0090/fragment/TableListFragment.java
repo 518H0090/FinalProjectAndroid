@@ -169,35 +169,23 @@ public class TableListFragment extends Fragment implements TableSelectOption {
         }
 
         String tableKey = table.getTKey();
-        String[] optionSelect= {statusReady , statusOrder ,statusDirty};
 
         Dialog dialog = new Dialog(getActivity());
         dialog.setCanceledOnTouchOutside(false);
         dialog.setContentView(R.layout.dialog_edit_table);
 
-        EditText customerNameTable = dialog.findViewById(R.id.customerNameTable);
         EditText tableName = dialog.findViewById(R.id.tableName);
-        Spinner selectActionSpinner = dialog.findViewById(R.id.selectActionSpinner);
         Button btnUpdateNewTable = dialog.findViewById(R.id.btnUpdateNewTable);
         Button btnCancelNewTable = dialog.findViewById(R.id.btnCancelNewTable);
 
-        customerNameTable.setText(table.getCustomerName());
         tableName.setText(table.getTableName());
-
-        ArrayAdapter adapter = new ArrayAdapter(
-                getActivity(),
-                android.R.layout.simple_spinner_dropdown_item,
-                optionSelect
-        );
-        selectActionSpinner.setAdapter(adapter);
 
         btnUpdateNewTable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String customername = customerNameTable.getText().toString().trim();
                 String tablename = tableName.getText().toString().trim();
 
-                Table table1 = new Table(tableKey, customername, tablename , selectActionSpinner.getSelectedItem().toString());
+                Table table1 = new Table(tableKey, tablename);
 
                 mDatabase.child("table").child(tableKey).updateChildren(table1.toMap(), new DatabaseReference.CompletionListener() {
                     @Override

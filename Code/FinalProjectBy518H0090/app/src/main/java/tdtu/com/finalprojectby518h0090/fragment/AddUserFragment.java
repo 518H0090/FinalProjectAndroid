@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +20,16 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import tdtu.com.finalprojectby518h0090.R;
 import tdtu.com.finalprojectby518h0090.model.User;
@@ -35,6 +42,7 @@ public class AddUserFragment extends Fragment {
     ProgressDialog progressDialog;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
+    static String oldUserFromFirebase;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -59,6 +67,8 @@ public class AddUserFragment extends Fragment {
             }
         });
 
+        ReGetUSer();
+
         btnAddUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,6 +77,11 @@ public class AddUserFragment extends Fragment {
         });
 
         return view;
+    }
+
+    private void ReGetUSer() {
+        FirebaseUser oldUSer = FirebaseAuth.getInstance().getCurrentUser();
+        oldUserFromFirebase = oldUSer.getEmail();
     }
 
     private void addNewUserToSystem() {
@@ -98,6 +113,7 @@ public class AddUserFragment extends Fragment {
                                     User user = new User(customerKey , email, password , userPermissionStaff);
                                     databaseReference.child("user").child(customerKey).setValue(user);
                                     Toast.makeText(getActivity(), "Thêm Người dùng thành công", Toast.LENGTH_SHORT).show();
+                                    getEmailAndPassword();
                                     if (getParentFragmentManager() != null) {
                                         getParentFragmentManager().popBackStack();
                                     }
@@ -112,6 +128,40 @@ public class AddUserFragment extends Fragment {
             }
         }
 
+    }
+
+    private void getEmailAndPassword() {
+        FirebaseDatabase.getInstance().getReference("user").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot getLoginSnap : snapshot.getChildren()) {
+                    User user = getLoginSnap.getValue(User.class);
+                    if (user.getUserEmail().equals(oldUserFromFirebase)) {
+                        ReAuthenWhenAdd(user.getUserEmail(), user.getUserPassword());
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void ReAuthenWhenAdd(String userEmail, String userPassword) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        AuthCredential credential = EmailAuthProvider
+                .getCredential(userEmail, userPassword);
+
+        user.reauthenticate(credential)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+
+                    }
+                });
     }
 
 }
