@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/TRUNG HIEU PC3/AndroidStudioProjects/FinalProjectBy518H0090/app/src/main/res/drawable/baseline_search_24.xml" value="0.2703125" />
         <entry key="..\:/Users/TRUNG HIEU PC3/AndroidStudioProjects/FinalProjectBy518H0090/app/src/main/res/drawable/baseline_vpn_key_24.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/TRUNG HIEU PC3/AndroidStudioProjects/FinalProjectBy518H0090/app/src/main/res/drawable/custom_button_cart.xml" value="0.2703125" />
         <entry key="..\:/Users/TRUNG HIEU PC3/AndroidStudioProjects/FinalProjectBy518H0090/app/src/main/res/layout/activity_forget_password.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/TRUNG HIEU PC3/AndroidStudioProjects/FinalProjectBy518H0090/app/src/main/res/layout/activity_load_into_app.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/TRUNG HIEU PC3/AndroidStudioProjects/FinalProjectBy518H0090/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
@@ -30,12 +31,14 @@
         <entry key="..\:/Users/TRUNG HIEU PC3/AndroidStudioProjects/FinalProjectBy518H0090/app/src/main/res/layout/fragment_menu_list.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/TRUNG HIEU PC3/AndroidStudioProjects/FinalProjectBy518H0090/app/src/main/res/layout/fragment_my_profile.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/TRUNG HIEU PC3/AndroidStudioProjects/FinalProjectBy518H0090/app/src/main/res/layout/fragment_setting.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/TRUNG HIEU PC3/AndroidStudioProjects/FinalProjectBy518H0090/app/src/main/res/layout/fragment_show_cart.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/TRUNG HIEU PC3/AndroidStudioProjects/FinalProjectBy518H0090/app/src/main/res/layout/fragment_show_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/TRUNG HIEU PC3/AndroidStudioProjects/FinalProjectBy518H0090/app/src/main/res/layout/fragment_show_table.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/TRUNG HIEU PC3/AndroidStudioProjects/FinalProjectBy518H0090/app/src/main/res/layout/fragment_table.xml" value="0.264" />
         <entry key="..\:/Users/TRUNG HIEU PC3/AndroidStudioProjects/FinalProjectBy518H0090/app/src/main/res/layout/fragment_table_list.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/TRUNG HIEU PC3/AndroidStudioProjects/FinalProjectBy518H0090/app/src/main/res/layout/fragment_user.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/TRUNG HIEU PC3/AndroidStudioProjects/FinalProjectBy518H0090/app/src/main/res/layout/header_drawler_view.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/TRUNG HIEU PC3/AndroidStudioProjects/FinalProjectBy518H0090/app/src/main/res/layout/recycler_cart_view.xml" value="0.264" />
         <entry key="..\:/Users/TRUNG HIEU PC3/AndroidStudioProjects/FinalProjectBy518H0090/app/src/main/res/layout/recycler_menu_cart.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/TRUNG HIEU PC3/AndroidStudioProjects/FinalProjectBy518H0090/app/src/main/res/layout/recycler_table_view_show.xml" value="0.264" />
         <entry key="..\:/Users/TRUNG HIEU PC3/AndroidStudioProjects/FinalProjectBy518H0090/app/src/main/res/layout/recycler_view_customer.xml" value="0.25416666666666665" />

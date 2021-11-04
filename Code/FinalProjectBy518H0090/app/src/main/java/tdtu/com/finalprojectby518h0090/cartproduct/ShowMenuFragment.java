@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -58,9 +60,12 @@ public class ShowMenuFragment extends Fragment implements ICartProduct {
         getMenuDataFirebase();
         adapter.setiCartProduct(iCartProduct);
         countNumberBadge();
+        IntoCartInfo();
 
         return view;
     }
+
+
 
     private void initUI(View view) {
         btnTurnBackShowTable = view.findViewById(R.id.btnTurnBackShowTable);
@@ -216,4 +221,32 @@ public class ShowMenuFragment extends Fragment implements ICartProduct {
         }
         badge_menu.setNumber(count);
     }
+
+    private void IntoCartInfo() {
+        frame_menu_shop_cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                String tableName = textTableName.getText().toString();
+                if (tableName.isEmpty()) {
+                    tableName = "Default Table";
+                } else {
+                    tableName = textTableName.getText().toString();
+                }
+
+                Bundle bundle = new Bundle();
+                bundle.putString("cart_table_name", tableName);
+
+                ShowCartFragment showCartFragment = new ShowCartFragment();
+                showCartFragment.setArguments(bundle);
+
+                fragmentTransaction.replace(R.id.replace_show_everything, showCartFragment);
+                fragmentTransaction.addToBackStack(ShowCartFragment.class.getName());
+                fragmentTransaction.commit();
+            }
+        });
+    }
+
 }
