@@ -102,6 +102,9 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
+                            String userKey = firebaseDatabase.getReference().push().getKey();
+                            User user = new User(userKey, "Huỳnh Trần Trung Hiếu", "12/04/2000", 384992205, "Bình Hưng Hòa A", email);
+                            firebaseDatabase.getReference("user").child(userKey).setValue(user);
                             Toast.makeText(LoginActivity.this, "Tạo Tài Khoản Admin \n nhoxhieuro5@gmail.com", Toast.LENGTH_SHORT).show();
                         } else {
                             // If sign in fails, display a message to the user.
