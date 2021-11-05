@@ -40,6 +40,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import tdtu.com.finalprojectby518h0090.MainActivity;
 import tdtu.com.finalprojectby518h0090.R;
 import tdtu.com.finalprojectby518h0090.model.User;
 
@@ -52,6 +53,7 @@ public class AddUserFragment extends Fragment {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     ImageView btnTurnBackShowTable;
+    MainActivity mainActivity;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -67,6 +69,7 @@ public class AddUserFragment extends Fragment {
         editUserPhone = view.findViewById(R.id.editUserPhone);
         editUserAddress = view.findViewById(R.id.editUserAddress);
         btnTurnBackShowTable = view.findViewById(R.id.btnTurnBackShowTable);
+        mainActivity = (MainActivity) getActivity();
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
@@ -148,6 +151,7 @@ public class AddUserFragment extends Fragment {
                                 User user = new User(customerKey, fullName , NgaySinh, phone, address, email);
                                 databaseReference.child("user").child(customerKey).setValue(user);
                                 Toast.makeText(getActivity(), "Thêm Người dùng thành công", Toast.LENGTH_SHORT).show();
+                                mainActivity.showInformation();
                                 if (getParentFragmentManager() != null) {
                                     getParentFragmentManager().popBackStack();
                                 }

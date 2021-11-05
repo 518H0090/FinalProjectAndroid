@@ -280,6 +280,15 @@ public class ListUserFragment extends Fragment implements UserSelectOption {
 
     @Override
     public void onClickManageAuthen(User user) {
+        FragmentManager fragmentManager = getParentFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        UserAuthenticationFragment userAuthenticationFragment = new UserAuthenticationFragment();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("AuthenUser", user);
+        userAuthenticationFragment.setArguments(bundle);
 
+        fragmentTransaction.replace(R.id.fragment_add_test, userAuthenticationFragment);
+        fragmentTransaction.addToBackStack(UserAuthenticationFragment.class.getName());
+        fragmentTransaction.commit();
     }
 }

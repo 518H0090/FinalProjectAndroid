@@ -1,6 +1,8 @@
 package tdtu.com.finalprojectby518h0090.model;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private String userKey;
     private String userFullname;
     private String userBirth;
