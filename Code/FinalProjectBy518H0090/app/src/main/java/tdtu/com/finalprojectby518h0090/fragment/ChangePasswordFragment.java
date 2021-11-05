@@ -19,8 +19,17 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.sql.ClientInfoStatus;
+import java.util.ArrayList;
+import java.util.List;
 
 import tdtu.com.finalprojectby518h0090.R;
+import tdtu.com.finalprojectby518h0090.model.User;
 
 public class ChangePasswordFragment extends Fragment {
 
@@ -94,6 +103,7 @@ public class ChangePasswordFragment extends Fragment {
 
     private void reAuthenticateUserDialog() {
         Dialog dialog = new Dialog(getActivity());
+        dialog.setCanceledOnTouchOutside(false);
         dialog.setContentView(R.layout.dialog_show_reauthentication);
 
         EditText reUsername = dialog.findViewById(R.id.reUsername);

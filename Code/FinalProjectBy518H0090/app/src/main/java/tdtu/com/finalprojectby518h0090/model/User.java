@@ -2,18 +2,22 @@ package tdtu.com.finalprojectby518h0090.model;
 
 public class User {
     private String userKey;
+    private String userFullname;
+    private String userBirth;
+    private long userPhone;
+    private String userAddress;
     private String userEmail;
-    private String userPassword;
-    private String userPermission;
 
     public User() {
     }
 
-    public User(String userKey, String userEmail, String userPassword, String userPermission) {
+    public User(String userKey, String userFullname, String userBirth, long userPhone, String userAddress, String userEmail) {
         this.userKey = userKey;
+        this.userFullname = userFullname;
+        this.userBirth = userBirth;
+        this.userPhone = userPhone;
+        this.userAddress = userAddress;
         this.userEmail = userEmail;
-        this.userPassword = userPassword;
-        this.userPermission = userPermission;
     }
 
     public String getUserKey() {
@@ -24,27 +28,43 @@ public class User {
         this.userKey = userKey;
     }
 
+    public String getUserFullname() {
+        return userFullname;
+    }
+
+    public void setUserFullname(String userFullname) {
+        this.userFullname = userFullname;
+    }
+
+    public String getUserBirth() {
+        return userBirth;
+    }
+
+    public void setUserBirth(String userBirth) {
+        this.userBirth = userBirth;
+    }
+
+    public long getUserPhone() {
+        return userPhone;
+    }
+
+    public void setUserPhone(long userPhone) {
+        this.userPhone = userPhone;
+    }
+
+    public String getUserAddress() {
+        return userAddress;
+    }
+
+    public void setUserAddress(String userAddress) {
+        this.userAddress = userAddress;
+    }
+
     public String getUserEmail() {
         return userEmail;
     }
 
     public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;
-    }
-
-    public String getUserPassword() {
-        return userPassword;
-    }
-
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
-    }
-
-    public String getUserPermission() {
-        return userPermission;
-    }
-
-    public void setUserPermission(String userPermission) {
-        this.userPermission = userPermission;
     }
 }

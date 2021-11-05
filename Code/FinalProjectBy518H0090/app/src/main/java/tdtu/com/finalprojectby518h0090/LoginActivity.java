@@ -102,9 +102,6 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            String userKey = databaseReference.push().getKey();
-                            User user = new User(userKey, email, password, userPermissionAdmin);
-                            databaseReference.child("user").child(userKey).setValue(user);
                             Toast.makeText(LoginActivity.this, "Tạo Tài Khoản Admin \n nhoxhieuro5@gmail.com", Toast.LENGTH_SHORT).show();
                         } else {
                             // If sign in fails, display a message to the user.
