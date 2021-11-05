@@ -1,57 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="10dp"
-    app:cardCornerRadius="6dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="3dp"
     android:layout_marginTop="10dp"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_marginEnd="3dp"
+    app:cardCornerRadius="6dp"
+    app:cardElevation="10dp">
 
-    <LinearLayout android:layout_width="match_parent"
+    <LinearLayout
+        android:id="@+id/btnLinearLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="8"
-        >
+        android:weightSum="8">
 
         <TextView
             android:id="@+id/BillTable"
-            android:layout_weight="2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Table Name"
+            android:layout_weight="2"
             android:gravity="center"
-            android:textSize="16sp"
-            />
+            android:text="Table Name"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/BillEmail"
-            android:layout_weight="2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Email"
+            android:layout_weight="2"
             android:gravity="center"
-            android:textSize="16sp"
-            />
+            android:text="Email"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/BillMoney"
-            android:layout_weight="2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Money"
+            android:layout_weight="2"
             android:gravity="center"
-            android:textSize="16sp"
-            />
+            android:text="Money"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/BillDate"
-            android:layout_weight="2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Date"
+            android:layout_weight="2"
             android:gravity="center"
-            android:textSize="16sp"
-            />
+            android:text="Date"
+            android:textSize="16sp" />
 
     </LinearLayout>
 
