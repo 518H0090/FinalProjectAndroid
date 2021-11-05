@@ -2,20 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group>
         <item
-            android:id="@+id/menu_user_change"
-            android:title="Edit Email" />
+            android:id="@+id/menu_user_manage_infor"
+            android:title="Manage Information" />
 
         <item
-            android:id="@+id/menu_password_change"
-            android:title="Edit Password" />
+            android:id="@+id/menu_user_manage_authentication"
+            android:title="Manage Authentication" />
 
-        <item
-            android:id="@+id/menu_permission_change"
-            android:title="Change Permission" />
-
-        <item
-            android:id="@+id/menu_user_delete"
-            android:title="Delete Email" />
     </group>
 
 </menu>
