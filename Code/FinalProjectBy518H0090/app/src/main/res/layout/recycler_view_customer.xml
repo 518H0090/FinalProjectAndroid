@@ -12,32 +12,89 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textCustomerName"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginTop="10dp"
-            android:text="Tên Khách Hàng"
-            android:textSize="20sp" />
+            android:orientation="horizontal"
+            android:weightSum="6"
+        >
+            <TextView
+                android:id="@+id/textCustomerNameTemp"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="Khách Hàng"
+                android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/textCustomerAddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Địa Chỉ"
-            android:layout_marginTop="10dp"
-            android:textSize="20sp" />
+            <TextView
+                android:id="@+id/textCustomerName"
+                android:layout_weight="4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="Tên Khách Hàng"
+                android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/textCustomerPhone"
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginTop="10dp"
-            android:text="Số Điện Thoại"
-            android:textSize="20sp" />
+            android:orientation="horizontal"
+            android:weightSum="6"
+        >
+            <TextView
+                android:id="@+id/textCustomerAddressShow"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Địa Chỉ"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textCustomerAddress"
+                android:layout_weight="4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Địa Chỉ"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="6"
+        >
+            <TextView
+                android:id="@+id/textCustomerPhoneShow"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="Số Điện Thoại"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textCustomerPhone"
+                android:layout_weight="4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="Số Điện Thoại"
+                android:textSize="20sp" />
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/btnActionCustomer"

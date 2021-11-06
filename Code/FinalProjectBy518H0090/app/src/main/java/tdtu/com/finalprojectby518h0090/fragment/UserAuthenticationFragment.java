@@ -1,6 +1,9 @@
 package tdtu.com.finalprojectby518h0090.fragment;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -25,6 +28,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
+import tdtu.com.finalprojectby518h0090.LoginActivity;
 import tdtu.com.finalprojectby518h0090.MainActivity;
 import tdtu.com.finalprojectby518h0090.R;
 import tdtu.com.finalprojectby518h0090.model.User;
@@ -114,7 +118,7 @@ public class UserAuthenticationFragment extends Fragment {
         btnDeleteAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                onDeleteAccount();
             }
         });
     }
@@ -335,4 +339,191 @@ public class UserAuthenticationFragment extends Fragment {
 
     }
 
+    private void onDeleteAccount() {
+        String userEdit = userAuthenNeedEdit.getText().toString();
+        String userNowLogin = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+        if (userEdit.equals(userNowLogin)) {
+            AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
+            dialog.setTitle("Xóa Account");
+            dialog.setMessage("Xác nhận xóa ?");
+            dialog.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                    user.delete()
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(getActivity(), "Xóa Thành Công", Toast.LENGTH_SHORT).show();
+                                        FirebaseDatabase.getInstance().getReference("user").child(getUser.getUserKey()).removeValue();
+
+                                        Dialog dialogReauthen = new Dialog(getActivity());
+                                        dialogReauthen.setContentView(R.layout.dialog_show_reauthentication);
+                                        EditText reUsername = dialogReauthen.findViewById(R.id.reUsername);
+                                        EditText rePassword = dialogReauthen.findViewById(R.id.rePassword);
+                                        Button btnReLogin = dialogReauthen.findViewById(R.id.btnReLogin);
+                                        Button btnReLoginCancel = dialogReauthen.findViewById(R.id.btnReLoginCancel);
+
+                                        btnReLoginCancel.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                FirebaseAuth.getInstance().signOut();
+                                                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                                                startActivity(intent);
+                                            }
+                                        });
+
+                                        btnReLogin.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                String reEmail = reUsername.getText().toString().trim();
+                                                String rePass = rePassword.getText().toString().trim();
+                                                if (reEmail.isEmpty() || rePass.isEmpty()) {
+                                                    Toast.makeText(getActivity(), "Thiếu Thông Tin", Toast.LENGTH_SHORT).show();
+                                                } else {
+                                                    FirebaseAuth.getInstance().signInWithEmailAndPassword(reEmail, rePass)
+                                                            .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
+                                                                @Override
+                                                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                                                    if (task.isSuccessful()) {
+                                                                        // Sign in success, update UI with the signed-in user's information
+                                                                        Toast.makeText(getActivity(), "Thay Thế Tài Khoản Thành Công", Toast.LENGTH_SHORT).show();
+                                                                    } else {
+                                                                        // If sign in fails, display a message to the user.
+                                                                        Toast.makeText(getActivity(), "Thay Thế Tài Khoản Thất Bại", Toast.LENGTH_SHORT).show();
+                                                                        FirebaseAuth.getInstance().signOut();
+                                                                        Intent intent = new Intent(getActivity(), LoginActivity.class);
+                                                                        startActivity(intent);
+                                                                    }
+                                                                }
+                                                            });
+                                                }
+                                            }
+                                        });
+
+                                        dialogReauthen.show();
+                                    } else {
+                                        Toast.makeText(getActivity(), "Xóa Thất Bại Cần Xác Thực", Toast.LENGTH_SHORT).show();
+                                        Dialog dialogReauthen = new Dialog(getActivity());
+                                        dialogReauthen.setContentView(R.layout.dialog_show_reauthentication);
+                                        EditText reUsername = dialogReauthen.findViewById(R.id.reUsername);
+                                        EditText rePassword = dialogReauthen.findViewById(R.id.rePassword);
+                                        Button btnReLogin = dialogReauthen.findViewById(R.id.btnReLogin);
+                                        Button btnReLoginCancel = dialogReauthen.findViewById(R.id.btnReLoginCancel);
+
+                                        btnReLoginCancel.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                dialogReauthen.dismiss();
+                                            }
+                                        });
+
+                                        btnReLogin.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                String reUser = reUsername.getText().toString().trim();
+                                                String rePass = rePassword.getText().toString().trim();
+                                                if (reUser.isEmpty() || rePass.isEmpty()) {
+                                                    Toast.makeText(getActivity(), "Thiếu Thông Tin", Toast.LENGTH_SHORT).show();
+                                                } else {
+                                                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                                                    AuthCredential credential = EmailAuthProvider
+                                                            .getCredential(reUser, rePass);
+
+                                                    user.reauthenticate(credential)
+                                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                @Override
+                                                                public void onComplete(@NonNull Task<Void> task) {
+                                                                    Toast.makeText(getActivity(), "Xác thực thành công", Toast.LENGTH_SHORT).show();
+                                                                    dialogReauthen.dismiss();
+                                                                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                                                                    user.delete()
+                                                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                                @Override
+                                                                                public void onComplete(@NonNull Task<Void> task) {
+                                                                                    if (task.isSuccessful()) {
+                                                                                        Toast.makeText(getActivity(), "Xóa Thành Công", Toast.LENGTH_SHORT).show();
+                                                                                        FirebaseDatabase.getInstance().getReference("user").child(getUser.getUserKey()).removeValue();
+
+                                                                                        Dialog dialogReauthenLogin = new Dialog(getActivity());
+                                                                                        dialogReauthenLogin.setContentView(R.layout.dialog_show_reauthentication);
+                                                                                        EditText reUsername = dialogReauthenLogin.findViewById(R.id.reUsername);
+                                                                                        EditText rePassword = dialogReauthenLogin.findViewById(R.id.rePassword);
+                                                                                        Button btnReLogin = dialogReauthenLogin.findViewById(R.id.btnReLogin);
+                                                                                        Button btnReLoginCancel = dialogReauthenLogin.findViewById(R.id.btnReLoginCancel);
+
+                                                                                        btnReLoginCancel.setOnClickListener(new View.OnClickListener() {
+                                                                                            @Override
+                                                                                            public void onClick(View v) {
+                                                                                                FirebaseAuth.getInstance().signOut();
+                                                                                                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                                                                                                startActivity(intent);
+                                                                                            }
+                                                                                        });
+
+                                                                                        btnReLogin.setOnClickListener(new View.OnClickListener() {
+                                                                                            @Override
+                                                                                            public void onClick(View v) {
+                                                                                                String reEmail = reUsername.getText().toString().trim();
+                                                                                                String rePass = rePassword.getText().toString().trim();
+                                                                                                if (reEmail.isEmpty() || rePass.isEmpty()) {
+                                                                                                    Toast.makeText(getActivity(), "Thiếu Thông Tin", Toast.LENGTH_SHORT).show();
+                                                                                                } else {
+                                                                                                    FirebaseAuth.getInstance().signInWithEmailAndPassword(reEmail, rePass)
+                                                                                                            .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
+                                                                                                                @Override
+                                                                                                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                                                                                                    if (task.isSuccessful()) {
+                                                                                                                        // Sign in success, update UI with the signed-in user's information
+                                                                                                                        Toast.makeText(getActivity(), "Thay Thế Tài Khoản Thành Công", Toast.LENGTH_SHORT).show();
+                                                                                                                        dialogReauthenLogin.dismiss();
+                                                                                                                    } else {
+                                                                                                                        // If sign in fails, display a message to the user.
+                                                                                                                        Toast.makeText(getActivity(), "Thay Thế Tài Khoản Thất Bại", Toast.LENGTH_SHORT).show();
+                                                                                                                        FirebaseAuth.getInstance().signOut();
+                                                                                                                        Intent intent = new Intent(getActivity(), LoginActivity.class);
+                                                                                                                        startActivity(intent);
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            });
+                                                                                                }
+                                                                                            }
+                                                                                        });
+
+                                                                                        dialogReauthenLogin.show();
+                                                                                    }
+                                                                                }
+                                                                            });
+
+                                                                }
+                                                            });
+
+                                                }
+                                            }
+                                        });
+
+
+                                        dialogReauthen.show();
+                                    }
+                                }
+                            });
+                }
+            });
+
+            dialog.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+            });
+
+            dialog.show();
+        } else {
+            Toast.makeText(getActivity(), "Tài Khoản Không Khớp Vui Lòng Đăng Nhập Lại", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
