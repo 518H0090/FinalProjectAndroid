@@ -531,6 +531,98 @@ public class UserAuthenticationFragment extends Fragment {
     }
 
     private void onSetChangePassWord() {
+        String userEdit = userAuthenNeedEdit.getText().toString();
+        String userLoginNow = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+        if (userEdit.equals(userLoginNow)) {
+            Dialog dialog = new Dialog(getActivity());
+            dialog.setCanceledOnTouchOutside(false);
+            dialog.setContentView(R.layout.dialog_show_change_password);
+            EditText editNewEmailPassWord = dialog.findViewById(R.id.editNewEmailPassWord);
+            Button btnChangeEmailPassWord = dialog.findViewById(R.id.btnChangeEmailPassWord);
+            Button btnCancelChangeEmailPassword = dialog.findViewById(R.id.btnCancelChangeEmailPassword);
 
+            btnCancelChangeEmailPassword.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
+
+            btnChangeEmailPassWord.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String newPassWordEdit = editNewEmailPassWord.getText().toString().trim();
+                    if (newPassWordEdit.isEmpty()) {
+                        Toast.makeText(getActivity(), "Vui Lòng Nhập Mật Khẩu", Toast.LENGTH_SHORT).show();
+                    } else {
+                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                        String newPassword = newPassWordEdit;
+
+                        user.updatePassword(newPassword)
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                            Toast.makeText(getActivity(), "Cập Nhật Thành Công", Toast.LENGTH_SHORT).show();
+                                            dialog.dismiss();
+                                        } else {
+                                            Dialog dialogReauthen = new Dialog(getActivity());
+                                            dialogReauthen.setCanceledOnTouchOutside(false);
+                                            dialogReauthen.setContentView(R.layout.dialog_show_reauthentication);
+                                            EditText reUsername = dialogReauthen.findViewById(R.id.reUsername);
+                                            EditText rePassword = dialogReauthen.findViewById(R.id.rePassword);
+                                            Button btnReLogin = dialogReauthen.findViewById(R.id.btnReLogin);
+                                            Button btnReLoginCancel = dialogReauthen.findViewById(R.id.btnReLoginCancel);
+
+                                            reUsername.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+
+                                            btnReLoginCancel.setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    dialogReauthen.dismiss();
+                                                }
+                                            });
+
+                                            btnReLogin.setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    String emailRe =  reUsername.getText().toString().trim();
+                                                    String passRe = rePassword.getText().toString().trim();
+                                                    if (emailRe.isEmpty() || passRe.isEmpty()) {
+                                                        Toast.makeText(getActivity(), "Thiếu Thông Tin", Toast.LENGTH_SHORT).show();
+                                                    } else {
+                                                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                                        AuthCredential credential = EmailAuthProvider
+                                                                .getCredential(emailRe, passRe);
+
+                                                        user.reauthenticate(credential)
+                                                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                    @Override
+                                                                    public void onComplete(@NonNull Task<Void> task) {
+                                                                       if (task.isSuccessful()) {
+                                                                           Toast.makeText(getActivity(), "Xác Thực Thành Công", Toast.LENGTH_SHORT).show();
+                                                                           dialogReauthen.dismiss();
+                                                                       } else {
+                                                                           Toast.makeText(getActivity(), "Có Lỗi Xác Thực", Toast.LENGTH_SHORT).show();
+                                                                       }
+                                                                    }
+                                                                });
+                                                    }
+                                                }
+                                            });
+
+                                            dialogReauthen.show();
+                                        }
+                                    }
+                                });
+
+                    }
+                }
+            });
+
+            dialog.show();
+        } else {
+            Toast.makeText(getActivity(), "Tài Khoản Không Khớp Vui Lòng Đăng Nhập Lại", Toast.LENGTH_SHORT).show();
+        }
     }
 }
