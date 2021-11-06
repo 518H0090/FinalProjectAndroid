@@ -104,7 +104,7 @@ public class UserAuthenticationFragment extends Fragment {
         btnChangePassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                onSetChangePassWord();
             }
         });
 
@@ -390,6 +390,7 @@ public class UserAuthenticationFragment extends Fragment {
                                                                     if (task.isSuccessful()) {
                                                                         // Sign in success, update UI with the signed-in user's information
                                                                         Toast.makeText(getActivity(), "Thay Thế Tài Khoản Thành Công", Toast.LENGTH_SHORT).show();
+                                                                        dialogReauthen.dismiss();
                                                                     } else {
                                                                         // If sign in fails, display a message to the user.
                                                                         Toast.makeText(getActivity(), "Thay Thế Tài Khoản Thất Bại", Toast.LENGTH_SHORT).show();
@@ -455,6 +456,8 @@ public class UserAuthenticationFragment extends Fragment {
                                                                                         EditText rePassword = dialogReauthenLogin.findViewById(R.id.rePassword);
                                                                                         Button btnReLogin = dialogReauthenLogin.findViewById(R.id.btnReLogin);
                                                                                         Button btnReLoginCancel = dialogReauthenLogin.findViewById(R.id.btnReLoginCancel);
+
+                                                                                        reUsername.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
 
                                                                                         btnReLoginCancel.setOnClickListener(new View.OnClickListener() {
                                                                                             @Override
@@ -525,5 +528,9 @@ public class UserAuthenticationFragment extends Fragment {
         } else {
             Toast.makeText(getActivity(), "Tài Khoản Không Khớp Vui Lòng Đăng Nhập Lại", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void onSetChangePassWord() {
+
     }
 }
