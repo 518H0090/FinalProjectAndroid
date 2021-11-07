@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             new ActivityResultCallback<ActivityResult>() {
                 @Override
                 public void onActivityResult(ActivityResult result) {
-                    if(result.getResultCode() == RESULT_OK) {
+                    if (result.getResultCode() == RESULT_OK) {
                         Intent intent = result.getData();
                         if (intent == null) {
                             return;
@@ -181,6 +181,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
+        } else if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+            getSupportFragmentManager().popBackStack();
         } else {
             super.onBackPressed();
         }
