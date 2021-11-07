@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/logoCoffe"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/logo_cafe" />
+
+    <EditText
+        android:id="@+id/editTableBill"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logoCoffe"
+        android:layout_marginTop="20dp"
+        android:hint="Nhập Tên Bàn"
+        android:inputType="textEmailAddress"
+        android:maxLength="100" />
+
+    <EditText
+        android:id="@+id/editMoneyBill"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTableBill"
+        android:layout_marginTop="20dp"
+        android:hint="Nhập Tổng Tiền"
+        android:inputType="number"
+        android:maxLength="100" />
+
+    <EditText
+        android:id="@+id/editDateBill"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editMoneyBill"
+        android:layout_marginTop="20dp"
+        android:hint="Chọn Thời gian"
+        android:maxLength="100" />
+
+
+    <Button
+        android:id="@+id/btnAddBill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editDateBill"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="20dp"
+        android:text="Thêm" />
+
+    <Button
+        android:id="@+id/btnDestroyBill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editDateBill"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@+id/btnAddBill"
+        android:text="Hủy" />
+
+
+</RelativeLayout>
