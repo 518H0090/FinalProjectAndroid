@@ -244,6 +244,7 @@ public class TableListFragment extends Fragment implements TableSelectOption {
                 mDatabase.child("table").child(tableKey).removeValue(new DatabaseReference.CompletionListener() {
                     @Override
                     public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                        mDatabase.child("cart").child(table.getTableName()).removeValue();
                         Toast.makeText(getActivity(), "Xóa Thành Công", Toast.LENGTH_SHORT).show();
                     }
                 });
