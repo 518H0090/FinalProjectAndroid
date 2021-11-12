@@ -393,6 +393,8 @@ public class UserAuthenticationFragment extends Fragment {
                                                                     if (task.isSuccessful()) {
                                                                         // Sign in success, update UI with the signed-in user's information
                                                                         Toast.makeText(getActivity(), "Thay Thế Tài Khoản Thành Công", Toast.LENGTH_SHORT).show();
+                                                                        userGetCurrentShow.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+                                                                        mainActivity.showInformation();
                                                                         dialogReauthen.dismiss();
                                                                     } else {
                                                                         // If sign in fails, display a message to the user.
