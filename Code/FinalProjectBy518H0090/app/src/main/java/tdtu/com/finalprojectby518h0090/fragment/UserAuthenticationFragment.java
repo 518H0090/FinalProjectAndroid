@@ -297,48 +297,41 @@ public class UserAuthenticationFragment extends Fragment {
     private void onSendLinkReset() {
         FirebaseAuth auth = FirebaseAuth.getInstance();
         String emailAddress = userAuthenNeedEdit.getText().toString();
-        String userNowLogin = FirebaseAuth.getInstance().getCurrentUser().getEmail();
 
-        if (emailAddress.equals(userNowLogin)) {
-            Dialog dialog = new Dialog(getActivity());
-            dialog.setCanceledOnTouchOutside(false);
-            dialog.setContentView(R.layout.dialog_send_reset_password);
+        Dialog dialog = new Dialog(getActivity());
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setContentView(R.layout.dialog_send_reset_password);
 
-            EditText editNewEmailSend = dialog.findViewById(R.id.editNewEmailSend);
-            Button btnSendEmail = dialog.findViewById(R.id.btnSendEmail);
-            Button btnCancelSendEmail = dialog.findViewById(R.id.btnCancelSendEmail);
+        EditText editNewEmailSend = dialog.findViewById(R.id.editNewEmailSend);
+        Button btnSendEmail = dialog.findViewById(R.id.btnSendEmail);
+        Button btnCancelSendEmail = dialog.findViewById(R.id.btnCancelSendEmail);
 
-            editNewEmailSend.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+        editNewEmailSend.setText(emailAddress);
 
-            btnSendEmail.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (emailAddress.equals(userNowLogin)) {
-                        auth.sendPasswordResetEmail(emailAddress)
-                                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        if (task.isSuccessful()) {
-                                            Toast.makeText(getActivity(), "Gửi Email Thành Công", Toast.LENGTH_SHORT).show();
-                                            dialog.dismiss();
-                                        }
-                                    }
-                                });
-                    }
-                }
-            });
+        btnSendEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                auth.sendPasswordResetEmail(editNewEmailSend.getText().toString().trim())
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getActivity(), "Gửi Email Thành Công", Toast.LENGTH_SHORT).show();
+                                    dialog.dismiss();
+                                }
+                            }
+                        });
+            }
+        });
 
-            btnCancelSendEmail.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    dialog.cancel();
-                }
-            });
+        btnCancelSendEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
 
-            dialog.show();
-        } else {
-            Toast.makeText(getActivity(), "Tài Khoản Không Khớp Vui Lòng Đăng Nhập Lại", Toast.LENGTH_SHORT).show();
-        }
+        dialog.show();
 
     }
 
@@ -591,7 +584,7 @@ public class UserAuthenticationFragment extends Fragment {
                                             btnReLogin.setOnClickListener(new View.OnClickListener() {
                                                 @Override
                                                 public void onClick(View v) {
-                                                    String emailRe =  reUsername.getText().toString().trim();
+                                                    String emailRe = reUsername.getText().toString().trim();
                                                     String passRe = rePassword.getText().toString().trim();
                                                     if (emailRe.isEmpty() || passRe.isEmpty()) {
                                                         Toast.makeText(getActivity(), "Thiếu Thông Tin", Toast.LENGTH_SHORT).show();
@@ -604,12 +597,12 @@ public class UserAuthenticationFragment extends Fragment {
                                                                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                                                                     @Override
                                                                     public void onComplete(@NonNull Task<Void> task) {
-                                                                       if (task.isSuccessful()) {
-                                                                           Toast.makeText(getActivity(), "Xác Thực Thành Công", Toast.LENGTH_SHORT).show();
-                                                                           dialogReauthen.dismiss();
-                                                                       } else {
-                                                                           Toast.makeText(getActivity(), "Có Lỗi Xác Thực", Toast.LENGTH_SHORT).show();
-                                                                       }
+                                                                        if (task.isSuccessful()) {
+                                                                            Toast.makeText(getActivity(), "Xác Thực Thành Công", Toast.LENGTH_SHORT).show();
+                                                                            dialogReauthen.dismiss();
+                                                                        } else {
+                                                                            Toast.makeText(getActivity(), "Có Lỗi Xác Thực", Toast.LENGTH_SHORT).show();
+                                                                        }
                                                                     }
                                                                 });
                                                     }
