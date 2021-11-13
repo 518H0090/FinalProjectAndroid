@@ -9,5 +9,5 @@ Huỳnh Trần Trung Hiếu : Hoàn Thành
 Đặng Vi Nhiên : Chưa Hoàn Thành
 
 Đòng Góp Hiện Tại
-Huỳnh Trần Trung Hiếu (Code + Quay Clip ) : Tạm Tính 90%
-Đặng Vi Nhiên (Báo Cáo Chưa xong) : Tạm Tính 10%
+Huỳnh Trần Trung Hiếu (Code + Quay Clip (Đang Chỉnh Sửa Lại) ) : Tạm Tính 70%
+Đặng Vi Nhiên (Báo Cáo Chưa xong + Chỉnh Sửa Menu) : Tạm Tính 30%
