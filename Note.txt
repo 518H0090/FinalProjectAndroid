@@ -1,8 +1,12 @@
-Bổ Sung Màn Hình Login + Reset Password
-Sửa Lỗi Chính Tả
-Edit Video
-ERD + bổ sung 1 số hình ảnh trên firebase
+Đường Link Để Xem
 
 ----------------------------------------------
+(dùng mail sinh viên TDT )
 https://drive.google.com/file/d/1cgeviSCCtqG4cRYp6BbcjDXBnjv1ZdBA/view?usp=sharing
-dùng mail sinh viên để vô
+
+Youtube
+https://www.youtube.com/watch?v=KRXU8HttBVE
+
+Github hiện tại đang private
+https://github.com/518H0090/FinalProjectAndroid
+
