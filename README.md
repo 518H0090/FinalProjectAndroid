@@ -12,4 +12,4 @@ Huỳnh Trần Trung Hiếu : Hoàn Thành
 Huỳnh Trần Trung Hiếu (Code + Quay Clip + Làm Phần Use Case Description (Hoàn Thành) ) : Tạm Tính 50%
 Đặng Vi Nhiên (Báo Cáo + Chỉnh Sửa Video) : Tạm Tính 50%
 
-Hiện Tại sơ bộ có thể coi là tạm ổn , Thứ 5 18/11 sẽ cố gắng fix lại các lỗi chỉnh tả chỉnh sửa lại file word thêm.
+Hiện tại đã hoàn thành gần hết Báo cáo tuần sau Thứ 3 23/11 thầy hướng dẫn thì làm thêm và gáng xong trong cuối tuần.
