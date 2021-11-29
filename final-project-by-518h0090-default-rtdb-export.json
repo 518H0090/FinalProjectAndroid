@@ -1,0 +1,539 @@
+{
+  "bill" : {
+    "-Mo1DrDlOcs0ipBTqjvE" : {
+      "billKey" : "-Mo1DrDlOcs0ipBTqjvE",
+      "dateTime" : "09/11/2021",
+      "tableName" : "Ban so 4",
+      "totalPrice" : 522000,
+      "userEmail" : "nhoxhieuro5@gmail.com"
+    },
+    "-Mo1DvtCPqT7N5CGcE6t" : {
+      "billKey" : "-Mo1DvtCPqT7N5CGcE6t",
+      "dateTime" : "09/11/2021",
+      "tableName" : "Ban so 3",
+      "totalPrice" : 113000,
+      "userEmail" : "nhoxhieuro5@gmail.com"
+    },
+    "-Mo1DyAABSMMu2rbs5HZ" : {
+      "billKey" : "-Mo1DyAABSMMu2rbs5HZ",
+      "dateTime" : "09/11/2021",
+      "tableName" : "Ban Cho 2",
+      "totalPrice" : 68000,
+      "userEmail" : "nhoxhieuro5@gmail.com"
+    },
+    "-Mo1E1IiAB9EFAXpBpOl" : {
+      "billKey" : "-Mo1E1IiAB9EFAXpBpOl",
+      "dateTime" : "09/11/2021",
+      "tableName" : "Ban Ben Ngoai 1",
+      "totalPrice" : 176000,
+      "userEmail" : "nhoxhieuro5@gmail.com"
+    },
+    "-Mo1E8KN_u53SRq8-v_v" : {
+      "billKey" : "-Mo1E8KN_u53SRq8-v_v",
+      "dateTime" : "09/11/2021",
+      "tableName" : "Ban Vip 1",
+      "totalPrice" : 638000,
+      "userEmail" : "nhoxhieuro5@gmail.com"
+    },
+    "-Mo3Wi0Ly3mI8E3_k_X0" : {
+      "billKey" : "-Mo3Wi0Ly3mI8E3_k_X0",
+      "dateTime" : "09/11/2021",
+      "tableName" : "Ban so 1",
+      "totalPrice" : 105000,
+      "userEmail" : "nhoxhieuro5@gmail.com"
+    },
+    "-MoCyR4ZB1pyO380AyCw" : {
+      "billKey" : "-MoCyR4ZB1pyO380AyCw",
+      "dateTime" : "11/11/2021",
+      "tableName" : "Ban so 4",
+      "totalPrice" : 140000,
+      "userEmail" : "nhoxhieuro5@gmail.com"
+    },
+    "-MoD45auHx3XkzKrr-t-" : {
+      "billKey" : "-MoD45auHx3XkzKrr-t-",
+      "dateTime" : "11/11/2021",
+      "tableName" : "Ban so 2",
+      "totalPrice" : 80000,
+      "userEmail" : "nhoxhieuro5@gmail.com"
+    },
+    "-MoDFvo8hLFkNcL09I0D" : {
+      "billKey" : "-MoDFvo8hLFkNcL09I0D",
+      "dateTime" : "11/11/2021",
+      "tableName" : "Ban so 2",
+      "totalPrice" : 145000,
+      "userEmail" : "nhoxhieuro5@gmail.com"
+    },
+    "-MoMZfGqxxwHRlZBFC4v" : {
+      "billKey" : "-MoMZfGqxxwHRlZBFC4v",
+      "dateTime" : "13/11/2021",
+      "tableName" : "Ban so 2",
+      "totalPrice" : 90000,
+      "userEmail" : "nhoxhieuro5@gmail.com"
+    },
+    "-MoM_NCf8B6IxoWnrC6Z" : {
+      "billKey" : "-MoM_NCf8B6IxoWnrC6Z",
+      "dateTime" : "13/11/2021",
+      "tableName" : "Ban so 2",
+      "totalPrice" : 120000,
+      "userEmail" : "nhoxhieuro5@gmail.com"
+    },
+    "-MoMaG4p58nYXy4hZIi7" : {
+      "billKey" : "-MoMaG4p58nYXy4hZIi7",
+      "dateTime" : "13/11/2021",
+      "tableName" : "Ban so 2",
+      "totalPrice" : 100000,
+      "userEmail" : "nhoxhieuro5@gmail.com"
+    }
+  },
+  "cart" : {
+    "Ban Ben Ngoai 1" : {
+      "-Mo1AuAn2UyX_c_F5d3t" : {
+        "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419211631.jpg?alt=media&token=84840513-b92a-461c-9fa0-0cd7fcbaff92",
+        "menuDrinkKey" : "-Mo1AuAn2UyX_c_F5d3t",
+        "nameDrink" : "bac xiu",
+        "priceDrink" : 20000,
+        "quantity" : 2,
+        "tagDrink" : "cafe",
+        "totalPrice" : 40000
+      }
+    },
+    "Ban Ben Ngoai 2" : {
+      "-Mo1B5d0tX-wxfl64yLG" : {
+        "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419263563.jpg?alt=media&token=91d877e2-82c1-4cfd-a1df-a1f907e2862f",
+        "menuDrinkKey" : "-Mo1B5d0tX-wxfl64yLG",
+        "nameDrink" : "soda bac ha",
+        "priceDrink" : 25000,
+        "quantity" : 3,
+        "tagDrink" : "soda",
+        "totalPrice" : 75000
+      }
+    },
+    "Ban Ben Ngoai 3" : {
+      "-Mo1AuAn2UyX_c_F5d3t" : {
+        "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419211631.jpg?alt=media&token=84840513-b92a-461c-9fa0-0cd7fcbaff92",
+        "menuDrinkKey" : "-Mo1AuAn2UyX_c_F5d3t",
+        "nameDrink" : "bac xiu",
+        "priceDrink" : 20000,
+        "quantity" : 1,
+        "tagDrink" : "cafe",
+        "totalPrice" : 20000
+      },
+      "-Mo1BBxM4APHLyze-sWS" : {
+        "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419287025.jpg?alt=media&token=952ea1db-d47c-4aef-ae97-2b5a3980f6d1",
+        "menuDrinkKey" : "-Mo1BBxM4APHLyze-sWS",
+        "nameDrink" : "soda dau",
+        "priceDrink" : 25000,
+        "quantity" : 3,
+        "tagDrink" : "soda",
+        "totalPrice" : 75000
+      }
+    },
+    "Ban Cho 1" : {
+      "-Mo1AuAn2UyX_c_F5d3t" : {
+        "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419211631.jpg?alt=media&token=84840513-b92a-461c-9fa0-0cd7fcbaff92",
+        "menuDrinkKey" : "-Mo1AuAn2UyX_c_F5d3t",
+        "nameDrink" : "bac xiu",
+        "priceDrink" : 20000,
+        "quantity" : 1,
+        "tagDrink" : "cafe",
+        "totalPrice" : 20000
+      },
+      "-Mo1BiThnOim7veSRupo" : {
+        "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419426356.jpg?alt=media&token=0dce538f-ae2a-48aa-88aa-e2d150789177",
+        "menuDrinkKey" : "-Mo1BiThnOim7veSRupo",
+        "nameDrink" : "Cappuccino",
+        "priceDrink" : 50000,
+        "quantity" : 1,
+        "tagDrink" : "cafemachine",
+        "totalPrice" : 50000
+      }
+    },
+    "Ban Cho 12" : {
+      "-Mo19LdaJJfjB9GWm9ec" : {
+        "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636418803143.jpg?alt=media&token=c01b820d-232a-4c5a-9d9b-99fafd765531",
+        "menuDrinkKey" : "-Mo19LdaJJfjB9GWm9ec",
+        "nameDrink" : "ca phe den",
+        "priceDrink" : 15000,
+        "quantity" : 4,
+        "tagDrink" : "cafe",
+        "totalPrice" : 60000
+      },
+      "-Mo1AoKj4yRnd3DFfdYK" : {
+        "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419187715.jpg?alt=media&token=75effd94-d9a6-4297-ba64-8c208bcc298f",
+        "menuDrinkKey" : "-Mo1AoKj4yRnd3DFfdYK",
+        "nameDrink" : "ca phe sua",
+        "priceDrink" : 18000,
+        "quantity" : 7,
+        "tagDrink" : "cafe",
+        "totalPrice" : 126000
+      }
+    },
+    "Ban Cho 4" : {
+      "-Mo1B5d0tX-wxfl64yLG" : {
+        "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419263563.jpg?alt=media&token=91d877e2-82c1-4cfd-a1df-a1f907e2862f",
+        "menuDrinkKey" : "-Mo1B5d0tX-wxfl64yLG",
+        "nameDrink" : "soda bac ha",
+        "priceDrink" : 25000,
+        "quantity" : 2,
+        "tagDrink" : "soda",
+        "totalPrice" : 50000
+      },
+      "-Mo1BBxM4APHLyze-sWS" : {
+        "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419287025.jpg?alt=media&token=952ea1db-d47c-4aef-ae97-2b5a3980f6d1",
+        "menuDrinkKey" : "-Mo1BBxM4APHLyze-sWS",
+        "nameDrink" : "soda dau",
+        "priceDrink" : 25000,
+        "quantity" : 1,
+        "tagDrink" : "soda",
+        "totalPrice" : 25000
+      },
+      "-Mo1BaSF-EEoAwlnaaMS" : {
+        "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419393433.jpg?alt=media&token=a7641c46-3f52-4729-a9d5-4158f70e2f8d",
+        "menuDrinkKey" : "-Mo1BaSF-EEoAwlnaaMS",
+        "nameDrink" : "Espresso",
+        "priceDrink" : 40000,
+        "quantity" : 1,
+        "tagDrink" : "cafemachine",
+        "totalPrice" : 40000
+      },
+      "-Mo1BiThnOim7veSRupo" : {
+        "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419426356.jpg?alt=media&token=0dce538f-ae2a-48aa-88aa-e2d150789177",
+        "menuDrinkKey" : "-Mo1BiThnOim7veSRupo",
+        "nameDrink" : "Cappuccino",
+        "priceDrink" : 50000,
+        "quantity" : 1,
+        "tagDrink" : "cafemachine",
+        "totalPrice" : 50000
+      }
+    },
+    "Ban Vip 1" : {
+      "-Mo1BiThnOim7veSRupo" : {
+        "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419426356.jpg?alt=media&token=0dce538f-ae2a-48aa-88aa-e2d150789177",
+        "menuDrinkKey" : "-Mo1BiThnOim7veSRupo",
+        "nameDrink" : "Cappuccino",
+        "priceDrink" : 50000,
+        "quantity" : 1,
+        "tagDrink" : "cafemachine",
+        "totalPrice" : 50000
+      },
+      "-Mo1C2ABd28TLiyDiojp" : {
+        "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419629129.jpg?alt=media&token=13b4145b-f9a3-4d87-97f1-123534f904b3",
+        "menuDrinkKey" : "-Mo1C2ABd28TLiyDiojp",
+        "nameDrink" : "Cold Brew Sua Tuoi",
+        "priceDrink" : 45000,
+        "quantity" : 1,
+        "tagDrink" : "coldbrew",
+        "totalPrice" : 45000
+      }
+    },
+    "Ban so 2" : {
+      "-Mo1AoKj4yRnd3DFfdYK" : {
+        "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419187715.jpg?alt=media&token=75effd94-d9a6-4297-ba64-8c208bcc298f",
+        "menuDrinkKey" : "-Mo1AoKj4yRnd3DFfdYK",
+        "nameDrink" : "ca phe sua",
+        "priceDrink" : 18000,
+        "quantity" : 3,
+        "tagDrink" : "cafe",
+        "totalPrice" : 54000
+      },
+      "-Mo1B5d0tX-wxfl64yLG" : {
+        "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419263563.jpg?alt=media&token=91d877e2-82c1-4cfd-a1df-a1f907e2862f",
+        "menuDrinkKey" : "-Mo1B5d0tX-wxfl64yLG",
+        "nameDrink" : "soda bac ha",
+        "priceDrink" : 25000,
+        "quantity" : 4,
+        "tagDrink" : "soda",
+        "totalPrice" : 100000
+      }
+    },
+    "Ban so 3" : {
+      "-Mo1AuAn2UyX_c_F5d3t" : {
+        "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419211631.jpg?alt=media&token=84840513-b92a-461c-9fa0-0cd7fcbaff92",
+        "menuDrinkKey" : "-Mo1AuAn2UyX_c_F5d3t",
+        "nameDrink" : "bac xiu",
+        "priceDrink" : 20000,
+        "quantity" : 4,
+        "tagDrink" : "cafe",
+        "totalPrice" : 80000
+      },
+      "-Mo1B5d0tX-wxfl64yLG" : {
+        "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419263563.jpg?alt=media&token=91d877e2-82c1-4cfd-a1df-a1f907e2862f",
+        "menuDrinkKey" : "-Mo1B5d0tX-wxfl64yLG",
+        "nameDrink" : "soda bac ha",
+        "priceDrink" : 25000,
+        "quantity" : 1,
+        "tagDrink" : "soda",
+        "totalPrice" : 25000
+      }
+    },
+    "Ban so 5" : {
+      "-Mo1B5d0tX-wxfl64yLG" : {
+        "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419263563.jpg?alt=media&token=91d877e2-82c1-4cfd-a1df-a1f907e2862f",
+        "menuDrinkKey" : "-Mo1B5d0tX-wxfl64yLG",
+        "nameDrink" : "soda bac ha",
+        "priceDrink" : 25000,
+        "quantity" : 3,
+        "tagDrink" : "soda",
+        "totalPrice" : 75000
+      }
+    },
+    "Ban so 6" : {
+      "-Mo1AoKj4yRnd3DFfdYK" : {
+        "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419187715.jpg?alt=media&token=75effd94-d9a6-4297-ba64-8c208bcc298f",
+        "menuDrinkKey" : "-Mo1AoKj4yRnd3DFfdYK",
+        "nameDrink" : "ca phe sua",
+        "priceDrink" : 18000,
+        "quantity" : 1,
+        "tagDrink" : "cafe",
+        "totalPrice" : 18000
+      },
+      "-Mo1AuAn2UyX_c_F5d3t" : {
+        "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419211631.jpg?alt=media&token=84840513-b92a-461c-9fa0-0cd7fcbaff92",
+        "menuDrinkKey" : "-Mo1AuAn2UyX_c_F5d3t",
+        "nameDrink" : "bac xiu",
+        "priceDrink" : 20000,
+        "quantity" : 2,
+        "tagDrink" : "cafe",
+        "totalPrice" : 40000
+      },
+      "-Mo1B5d0tX-wxfl64yLG" : {
+        "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419263563.jpg?alt=media&token=91d877e2-82c1-4cfd-a1df-a1f907e2862f",
+        "menuDrinkKey" : "-Mo1B5d0tX-wxfl64yLG",
+        "nameDrink" : "soda bac ha",
+        "priceDrink" : 25000,
+        "quantity" : 2,
+        "tagDrink" : "soda",
+        "totalPrice" : 50000
+      },
+      "-Mo1BiThnOim7veSRupo" : {
+        "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419426356.jpg?alt=media&token=0dce538f-ae2a-48aa-88aa-e2d150789177",
+        "menuDrinkKey" : "-Mo1BiThnOim7veSRupo",
+        "nameDrink" : "Cappuccino",
+        "priceDrink" : 50000,
+        "quantity" : 2,
+        "tagDrink" : "cafemachine",
+        "totalPrice" : 100000
+      },
+      "-Mo1C2ABd28TLiyDiojp" : {
+        "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419629129.jpg?alt=media&token=13b4145b-f9a3-4d87-97f1-123534f904b3",
+        "menuDrinkKey" : "-Mo1C2ABd28TLiyDiojp",
+        "nameDrink" : "Cold Brew Sua Tuoi",
+        "priceDrink" : 45000,
+        "quantity" : 1,
+        "tagDrink" : "coldbrew",
+        "totalPrice" : 45000
+      }
+    }
+  },
+  "customer" : {
+    "-Mo1DL1u-vPusi2iI973" : {
+      "customerAddress" : "Binh Tan, Binh Hung Hoa A",
+      "customerKey" : "-Mo1DL1u-vPusi2iI973",
+      "customerName" : "Huynh Tran Trung Hieu",
+      "customerPhone" : 384992205
+    },
+    "-Mo1DV2uRWeh9sJSvYtW" : {
+      "customerAddress" : "America",
+      "customerKey" : "-Mo1DV2uRWeh9sJSvYtW",
+      "customerName" : "John Wick",
+      "customerPhone" : 990833
+    },
+    "-MoCzYR28XV7ldvG3prJ" : {
+      "customerAddress" : "Ben Tre",
+      "customerKey" : "-MoCzYR28XV7ldvG3prJ",
+      "customerName" : "Nguyen Thanh Khang",
+      "customerPhone" : 38477662
+    },
+    "-MoMfQqynbgM_ed2T8BY" : {
+      "customerAddress" : "Ben Tre",
+      "customerKey" : "-MoMfQqynbgM_ed2T8BY",
+      "customerName" : "Nguyen Thanh Khang",
+      "customerPhone" : 384992205
+    }
+  },
+  "menu" : {
+    "-Mo19LdaJJfjB9GWm9ec" : {
+      "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636418803143.jpg?alt=media&token=c01b820d-232a-4c5a-9d9b-99fafd765531",
+      "menuDrinkKey" : "-Mo19LdaJJfjB9GWm9ec",
+      "nameDrink" : "ca phe den",
+      "priceDrink" : 15000,
+      "tagDrink" : "cafe"
+    },
+    "-Mo1AoKj4yRnd3DFfdYK" : {
+      "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419187715.jpg?alt=media&token=75effd94-d9a6-4297-ba64-8c208bcc298f",
+      "menuDrinkKey" : "-Mo1AoKj4yRnd3DFfdYK",
+      "nameDrink" : "ca phe sua",
+      "priceDrink" : 18000,
+      "tagDrink" : "cafe"
+    },
+    "-Mo1AuAn2UyX_c_F5d3t" : {
+      "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419211631.jpg?alt=media&token=84840513-b92a-461c-9fa0-0cd7fcbaff92",
+      "menuDrinkKey" : "-Mo1AuAn2UyX_c_F5d3t",
+      "nameDrink" : "bac xiu",
+      "priceDrink" : 20000,
+      "tagDrink" : "cafe"
+    },
+    "-Mo1B5d0tX-wxfl64yLG" : {
+      "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419263563.jpg?alt=media&token=91d877e2-82c1-4cfd-a1df-a1f907e2862f",
+      "menuDrinkKey" : "-Mo1B5d0tX-wxfl64yLG",
+      "nameDrink" : "soda bac ha",
+      "priceDrink" : 25000,
+      "tagDrink" : "soda"
+    },
+    "-Mo1BBxM4APHLyze-sWS" : {
+      "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419287025.jpg?alt=media&token=952ea1db-d47c-4aef-ae97-2b5a3980f6d1",
+      "menuDrinkKey" : "-Mo1BBxM4APHLyze-sWS",
+      "nameDrink" : "soda dau",
+      "priceDrink" : 25000,
+      "tagDrink" : "soda"
+    },
+    "-Mo1BIbEPvZ7AJHImVTv" : {
+      "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419316366.jpg?alt=media&token=5bbcf83d-531b-4c46-b974-b7ed72a3c340",
+      "menuDrinkKey" : "-Mo1BIbEPvZ7AJHImVTv",
+      "nameDrink" : "soda kiwi",
+      "priceDrink" : 25000,
+      "tagDrink" : "soda"
+    },
+    "-Mo1BaSF-EEoAwlnaaMS" : {
+      "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419393433.jpg?alt=media&token=a7641c46-3f52-4729-a9d5-4158f70e2f8d",
+      "menuDrinkKey" : "-Mo1BaSF-EEoAwlnaaMS",
+      "nameDrink" : "Espresso",
+      "priceDrink" : 40000,
+      "tagDrink" : "cafemachine"
+    },
+    "-Mo1BiThnOim7veSRupo" : {
+      "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419426356.jpg?alt=media&token=0dce538f-ae2a-48aa-88aa-e2d150789177",
+      "menuDrinkKey" : "-Mo1BiThnOim7veSRupo",
+      "nameDrink" : "Cappuccino",
+      "priceDrink" : 50000,
+      "tagDrink" : "cafemachine"
+    },
+    "-Mo1BsQfQOcEp1xlw5cC" : {
+      "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419465519.jpg?alt=media&token=d8ccc34d-d8ae-428d-9b7f-5b48b2bc359d",
+      "menuDrinkKey" : "-Mo1BsQfQOcEp1xlw5cC",
+      "nameDrink" : "Mocha",
+      "priceDrink" : 50000,
+      "tagDrink" : "cafemachine"
+    },
+    "-Mo1C2ABd28TLiyDiojp" : {
+      "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419629129.jpg?alt=media&token=13b4145b-f9a3-4d87-97f1-123534f904b3",
+      "menuDrinkKey" : "-Mo1C2ABd28TLiyDiojp",
+      "nameDrink" : "Cold Brew Sua Tuoi",
+      "priceDrink" : 45000,
+      "tagDrink" : "coldbrew"
+    },
+    "-Mo1CBrDNVkr3OT4I7AB" : {
+      "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419549753.jpg?alt=media&token=d1853711-836b-4fe1-b33c-2d119d185485",
+      "menuDrinkKey" : "-Mo1CBrDNVkr3OT4I7AB",
+      "nameDrink" : "Cold Brew Truyen Thong",
+      "priceDrink" : 45000,
+      "tagDrink" : "coldbrew"
+    },
+    "-Mo1Ck17uzAM_EQI5TEl" : {
+      "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636419695306.jpg?alt=media&token=22af6ddd-4f27-46c4-b665-7b73c92668c4",
+      "menuDrinkKey" : "-Mo1Ck17uzAM_EQI5TEl",
+      "nameDrink" : "Tra Dao Cam Sa",
+      "priceDrink" : 45000,
+      "tagDrink" : "teafruit"
+    },
+    "-MoD-mazSF6Rtm3RUkWF" : {
+      "imageDrink" : "https://firebasestorage.googleapis.com/v0/b/final-project-by-518h0090.appspot.com/o/uploads%2F1636617733388.jpg?alt=media&token=a8c33539-1b5e-4819-bd80-75528a197e33",
+      "menuDrinkKey" : "-MoD-mazSF6Rtm3RUkWF",
+      "nameDrink" : "Cafe Khong Duong",
+      "priceDrink" : 12000,
+      "tagDrink" : "cafe"
+    }
+  },
+  "table" : {
+    "-Mo1CryO672tkO4K5Li4" : {
+      "tableName" : "Ban so 2",
+      "tkey" : "-Mo1CryO672tkO4K5Li4"
+    },
+    "-Mo1CsySPYBgJXAtw5ly" : {
+      "tableName" : "Ban so 3",
+      "tkey" : "-Mo1CsySPYBgJXAtw5ly"
+    },
+    "-Mo1CtufGfQAULt97ft-" : {
+      "tableName" : "Ban so 4",
+      "tkey" : "-Mo1CtufGfQAULt97ft-"
+    },
+    "-Mo1Cv3JxNVNPB67QrJN" : {
+      "tableName" : "Ban so 5",
+      "tkey" : "-Mo1Cv3JxNVNPB67QrJN"
+    },
+    "-Mo1CwBAXUAj2YZeIftc" : {
+      "tableName" : "Ban so 6",
+      "tkey" : "-Mo1CwBAXUAj2YZeIftc"
+    },
+    "-Mo1CxuCqzZS-cexNaV3" : {
+      "tableName" : "Ban Cho 1",
+      "tkey" : "-Mo1CxuCqzZS-cexNaV3"
+    },
+    "-Mo1D-PHDCSV6rW8yR-l" : {
+      "tableName" : "Ban Cho 2",
+      "tkey" : "-Mo1D-PHDCSV6rW8yR-l"
+    },
+    "-Mo1D0wN6a1hCLZRXFnJ" : {
+      "tableName" : "Ban Cho 3",
+      "tkey" : "-Mo1D0wN6a1hCLZRXFnJ"
+    },
+    "-Mo1D1vZS8NBXLm2Zbmy" : {
+      "tableName" : "Ban Cho 4",
+      "tkey" : "-Mo1D1vZS8NBXLm2Zbmy"
+    },
+    "-Mo1D3jF9Ic37kZIlmXS" : {
+      "tableName" : "Ban Ben Ngoai 1",
+      "tkey" : "-Mo1D3jF9Ic37kZIlmXS"
+    },
+    "-Mo1D51KfeSg8Z2I2VA_" : {
+      "tableName" : "Ban Ben Ngoai 2",
+      "tkey" : "-Mo1D51KfeSg8Z2I2VA_"
+    },
+    "-Mo1D69MN2utfN4WvA2l" : {
+      "tableName" : "Ban Ben Ngoai 3",
+      "tkey" : "-Mo1D69MN2utfN4WvA2l"
+    },
+    "-Mo1D9RQeuz61FkGVjXa" : {
+      "tableName" : "Ban Tren Lau 1",
+      "tkey" : "-Mo1D9RQeuz61FkGVjXa"
+    },
+    "-Mo1DAbsqEG6eY8T9JGZ" : {
+      "tableName" : "Ban Tren Lau 2",
+      "tkey" : "-Mo1DAbsqEG6eY8T9JGZ"
+    },
+    "-Mo1DDxTP9xAhKJR9LvY" : {
+      "tableName" : "Ban Vip 1",
+      "tkey" : "-Mo1DDxTP9xAhKJR9LvY"
+    },
+    "-Mo1DF402Zyo-e0OUL1N" : {
+      "tableName" : "Ban Vip 2",
+      "tkey" : "-Mo1DF402Zyo-e0OUL1N"
+    },
+    "-MoMj1b83cGJmVGbY1Bd" : {
+      "tableName" : "Ban Cho 10",
+      "tkey" : "-MoMj1b83cGJmVGbY1Bd"
+    },
+    "-MoMjPm6usmOtFNwlJqa" : {
+      "tableName" : "Ban Cho 12",
+      "tkey" : "-MoMjPm6usmOtFNwlJqa"
+    }
+  },
+  "user" : {
+    "-MobdZ5yeB021JL_nGLy" : {
+      "userAddress" : "Bình Hưng Hòa A",
+      "userBirth" : "12/04/2000",
+      "userEmail" : "nhoxhieuro5@gmail.com",
+      "userFullname" : "Huỳnh Trần Trung Hiếu",
+      "userKey" : "-MobdZ5yeB021JL_nGLy",
+      "userPhone" : 384992205
+    },
+    "-MobdjXIlayc87JK9hws" : {
+      "userAddress" : "Ho Chi Minh",
+      "userBirth" : "03/11/2021",
+      "userEmail" : "dangvinhien@gmail.com",
+      "userFullname" : "Dang Vi Nhien",
+      "userKey" : "-MobdjXIlayc87JK9hws",
+      "userPhone" : 93003
+    }
+  }
+}
