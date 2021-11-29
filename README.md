@@ -6,10 +6,17 @@ Làm báo cáo : Đặng Vi Nhiên
 
 Tiến Độ
 Huỳnh Trần Trung Hiếu : Hoàn Thành
-Đặng Vi Nhiên : Chưa Hoàn Thành
+Đặng Vi Nhiên : Hoàn Thành
 
 Đòng Góp Hiện Tại
-Huỳnh Trần Trung Hiếu (Code + Quay Clip + Làm Phần Use Case Description (Hoàn Thành) ) : Tạm Tính 50%
-Đặng Vi Nhiên (Báo Cáo + Chỉnh Sửa Video) : Tạm Tính 50%
+Huỳnh Trần Trung Hiếu (Code + Quay Clip) : Tính 50%
+Nhóm trưởng chỉ đạo sắp xếp công việc, làm các màn hình của ứng dụng , xử lý database , logic ứng dụng và quay clip demo sản phẩm.
 
-Hiện tại đã hoàn thành gần hết Báo cáo tuần sau Thứ 3 23/11 thầy hướng dẫn thì làm thêm và gáng xong trong cuối tuần.
+Đặng Vi Nhiên (Báo Cáo + Chỉnh Sửa Video) : Tính 50%
+Làm việc với nhóm trưởng , hỏi đáp ý kiến để viết báo cáo , góp ý chỉnh sửa nội dung khi quay clip cũng như edit cắt ghép clip , làm đánh giá rubric.
+
+Công việc chung:
+- Xem xét chỉnh sửa các chức năng ứng dụng
+- Cùng nhau góp ý , xây dựng hoàn thành báo cáo
+- Update đường link lên youtube , google drive.
+
