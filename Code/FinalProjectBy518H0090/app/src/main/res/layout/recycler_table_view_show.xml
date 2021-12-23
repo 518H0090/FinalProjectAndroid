@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginBottom="10dp"
+    app:cardCornerRadius="30dp">
+
+    <RelativeLayout
+        android:id="@+id/linearLayoutTable"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <FrameLayout
+            android:id="@+id/productCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-4dp">
+
+            <ImageView
+                android:id="@+id/tableIcon"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/table_default"
+                app:tint="@color/black" />
+
+            <com.nex3z.notificationbadge.NotificationBadge
+                android:id="@+id/badge"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:nbMaxTextLength="2"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="60dp"
+                />
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tTableName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/productCart"
+            android:layout_marginTop="10dp"
+            android:background="#0087FD"
+            android:gravity="center"
+            android:text="Tên Bàn"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
