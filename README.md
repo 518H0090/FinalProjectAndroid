@@ -20,6 +20,3 @@ Công việc chung:
 - Cùng nhau góp ý , xây dựng hoàn thành báo cáo
 - Update đường link lên youtube , google drive.
 
-Ngày 21/12/2021 public nhưng mã nguồn sẽ tạm khóa đợi sau ngày báo cáo 25/12/2021 sẽ mở khóa
-
-Ngày 25/12/2021 Đã Unlock mã nguồn.
